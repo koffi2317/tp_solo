@@ -1,0 +1,3 @@
+C:/Users/akakp/CLionProjects/tp_solo/cmake-build-debug/CMakeFiles/tp_solo.dir
+C:/Users/akakp/CLionProjects/tp_solo/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/akakp/CLionProjects/tp_solo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
