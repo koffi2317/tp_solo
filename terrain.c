@@ -66,6 +66,14 @@ do {
 
 // Definir la fonction 'terrain_contient' ici
 
+int terrain_contient(int position_ligne, int position_colonne) {
+
+
+
+return 0;
+
+}
+
 // Definir la fonction 'terrain_get_carburant' ici
 
 // Definir la fonction 'terrain_set_carburant' ici
