@@ -8,6 +8,7 @@
 //  taille du terrain
 #define NB_LIGNES 10
 #define NB_COLONNES 10
+#define DISTANCE_MIN 10
 
 //  *****************************
 //  Definitions des types publics
