@@ -11,6 +11,7 @@
 #define DISTANCE_MIN 10
 #define TRUE 1
 #define FALSE 0
+#define NULL 0
 
 //  *****************************
 //  Definitions des types publics
