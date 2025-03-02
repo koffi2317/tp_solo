@@ -77,7 +77,7 @@ int terrain_contient(int position_ligne, int position_colonne) {
 // Definir la fonction 'terrain_get_carburant' ici
 
 int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_ligne, int
-position_colonne) {
+                          position_colonne) {
     int carburant = 0;
 
     for (int i = 0; i < NB_LIGNES; i++) {
@@ -95,18 +95,14 @@ position_colonne) {
 // Definir la fonction 'terrain_set_carburant' ici
 
 
-
-
 // Definir la fonction 'terrain_init' ici
 
 void terrain_init(int terrain[NB_LIGNES][NB_COLONNES]) {
-
-    for (int i=0;i<NB_LIGNES;i++) {
-        for(int j=0;j<NB_COLONNES;j++) {
-            terrain[i][j]=NULL;
+    for (int i = 0; i < NB_LIGNES; i++) {
+        for (int j = 0; j < NB_COLONNES; j++) {
+            terrain[i][j] = NULL;
         }
     }
-
 }
 
 
