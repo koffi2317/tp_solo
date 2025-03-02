@@ -7,4 +7,6 @@ add_executable(tp_solo main.c
         util.h
         util.c
         terrain.h
-        terrain.c)
+        terrain.c
+        jeu.h
+        jeu.c)
