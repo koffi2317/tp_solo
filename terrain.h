@@ -9,6 +9,8 @@
 #define NB_LIGNES 10
 #define NB_COLONNES 10
 #define DISTANCE_MIN 10
+#define TRUE 1
+#define FALSE 0
 
 //  *****************************
 //  Definitions des types publics

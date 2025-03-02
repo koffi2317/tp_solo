@@ -22,56 +22,56 @@ void terrain_generer_position_sortie(int *sortie_colonne, int *sortie_ligne) {
 
 void terrain_generer_position_depart(int destination_ligne, int destination_colonne, int
                                      *depart_lignes, int *depart_colonne) {
-int distance_tot=0;
-    int distance_ligne=0;
-    int distance_colonne=0;
-*depart_lignes=util_generer_nombre_aleatoire(0,(NB_COLONNES-1));
-*depart_colonne=util_generer_nombre_aleatoire(0,(NB_COLONNES-1));
+    int distance_tot = 0;
+    int distance_ligne = 0;
+    int distance_colonne = 0;
+    *depart_lignes = util_generer_nombre_aleatoire(0, (NB_COLONNES - 1));
+    *depart_colonne = util_generer_nombre_aleatoire(0, (NB_COLONNES - 1));
 
-distance_ligne=destination_ligne-*depart_lignes;
-    distance_colonne=destination_colonne-*depart_colonne;
+    distance_ligne = destination_ligne - *depart_lignes;
+    distance_colonne = destination_colonne - *depart_colonne;
 
-    if(distance_ligne<0) {
-        distance_ligne*=-1;
+    if (distance_ligne < 0) {
+        distance_ligne *= -1;
     }
-    if(distance_colonne<0) {
-        distance_colonne*=-1;
-    }
-
-distance_tot=distance_ligne+distance_colonne;
-
-    if(distance_tot<DISTANCE_MIN) {
-
-do {
-    *depart_lignes=util_generer_nombre_aleatoire((NB_LIGNES-1),(NB_COLONNES-1));
-    *depart_colonne=util_generer_nombre_aleatoire(NB_LIGNES-1,(NB_COLONNES-1));
-
-    distance_ligne=destination_ligne-*depart_lignes;
-    distance_colonne=destination_colonne-*depart_colonne;
-
-    if(distance_ligne<0) {
-        distance_ligne*=-1;
-    }
-    if(distance_colonne<0) {
-        distance_colonne*=-1;
+    if (distance_colonne < 0) {
+        distance_colonne *= -1;
     }
 
-    distance_tot=distance_ligne+distance_colonne;
-}while(distance_tot<DISTANCE_MIN);
+    distance_tot = distance_ligne + distance_colonne;
 
+    if (distance_tot < DISTANCE_MIN) {
+        do {
+            *depart_lignes = util_generer_nombre_aleatoire(
+                (NB_LIGNES - 1), (NB_COLONNES - 1));
+            *depart_colonne = util_generer_nombre_aleatoire(
+                NB_LIGNES - 1, (NB_COLONNES - 1));
 
+            distance_ligne = destination_ligne - *depart_lignes;
+            distance_colonne = destination_colonne - *depart_colonne;
 
+            if (distance_ligne < 0) {
+                distance_ligne *= -1;
+            }
+            if (distance_colonne < 0) {
+                distance_colonne *= -1;
+            }
+
+            distance_tot = distance_ligne + distance_colonne;
+        } while (distance_tot < DISTANCE_MIN);
     }
 }
 
 // Definir la fonction 'terrain_contient' ici
 
 int terrain_contient(int position_ligne, int position_colonne) {
+    if (position_ligne < 0 || position_ligne > NB_LIGNES - 1) {
+        return FALSE;
+    } else if (position_colonne < 0 || position_colonne > NB_COLONNES - 1) {
+        return FALSE;
+    }
 
-
-
-return 0;
-
+    return TRUE;
 }
 
 // Definir la fonction 'terrain_get_carburant' ici
