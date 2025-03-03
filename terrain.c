@@ -105,7 +105,32 @@ void terrain_init(int terrain[NB_LIGNES][NB_COLONNES]) {
     }
 }
 
-
 // Definir la fonction 'terrain_creer_stations_carburant' ici
 
+void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int
+                                      quantité_globale) {
+    int carburant = 0;
+
+    while (quantité_globale > 0) {
+        int i = 0;
+        int j = 0;
+
+        i = util_generer_nombre_aleatoire(0,NB_LIGNES - 1);
+        j = util_generer_nombre_aleatoire(0,NB_COLONNES - 1);
+        if (terrain[i][j] == 0) {
+            carburant = util_generer_nombre_aleatoire(0,STATION_MAX_CARBURANT);
+            if (carburant > quantité_globale) {
+                do {
+                    carburant = util_generer_nombre_aleatoire(0,STATION_MAX_CARBURANT);
+                } while (carburant > quantité_globale);
+            }
+            terrain[i][j] = carburant;
+        }
+
+        quantité_globale -= carburant;
+    }
+}
+
 // Definir la fonction 'terrain_afficher' ici
+
+void terrain_afficher();
