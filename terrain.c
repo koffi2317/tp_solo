@@ -93,7 +93,7 @@ int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lign
 
 
 // Definir la fonction 'terrain_set_carburant' ici
-
+/*a ne pas oublier! tres important!*/
 
 // Definir la fonction 'terrain_init' ici
 
