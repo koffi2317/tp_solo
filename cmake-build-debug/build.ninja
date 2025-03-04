@@ -73,6 +73,18 @@ build CMakeFiles/tp_solo.dir/jeu.c.obj: C_COMPILER__tp_solo_unscanned_Debug C$:/
   OBJECT_DIR = CMakeFiles\tp_solo.dir
   OBJECT_FILE_DIR = CMakeFiles\tp_solo.dir
 
+build CMakeFiles/tp_solo.dir/interaction.c.obj: C_COMPILER__tp_solo_unscanned_Debug C$:/Users/akakp/CLionProjects/tp_solo/interaction.c || cmake_object_order_depends_target_tp_solo
+  DEP_FILE = CMakeFiles\tp_solo.dir\interaction.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\tp_solo.dir
+  OBJECT_FILE_DIR = CMakeFiles\tp_solo.dir
+
+build CMakeFiles/tp_solo.dir/dijkstra.c.obj: C_COMPILER__tp_solo_unscanned_Debug C$:/Users/akakp/CLionProjects/tp_solo/dijkstra.c || cmake_object_order_depends_target_tp_solo
+  DEP_FILE = CMakeFiles\tp_solo.dir\dijkstra.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\tp_solo.dir
+  OBJECT_FILE_DIR = CMakeFiles\tp_solo.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target tp_solo
@@ -81,7 +93,7 @@ build CMakeFiles/tp_solo.dir/jeu.c.obj: C_COMPILER__tp_solo_unscanned_Debug C$:/
 #############################################
 # Link the executable tp_solo.exe
 
-build tp_solo.exe: C_EXECUTABLE_LINKER__tp_solo_Debug CMakeFiles/tp_solo.dir/main.c.obj CMakeFiles/tp_solo.dir/util.c.obj CMakeFiles/tp_solo.dir/terrain.c.obj CMakeFiles/tp_solo.dir/jeu.c.obj
+build tp_solo.exe: C_EXECUTABLE_LINKER__tp_solo_Debug CMakeFiles/tp_solo.dir/main.c.obj CMakeFiles/tp_solo.dir/util.c.obj CMakeFiles/tp_solo.dir/terrain.c.obj CMakeFiles/tp_solo.dir/jeu.c.obj CMakeFiles/tp_solo.dir/interaction.c.obj CMakeFiles/tp_solo.dir/dijkstra.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\tp_solo.dir

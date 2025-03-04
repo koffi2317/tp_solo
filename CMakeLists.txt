@@ -9,4 +9,8 @@ add_executable(tp_solo main.c
         terrain.h
         terrain.c
         jeu.h
-        jeu.c)
+        jeu.c
+        interaction.h
+        interaction.c
+        dijkstra.h
+        dijkstra.c)
