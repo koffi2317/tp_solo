@@ -101,3 +101,17 @@ void jeu_calculer_voisin(int case_ligne, int case_colonne, const char *direction
 }
 
 // Definir la fonction 'jeu_verifier_fin' ici
+
+int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant, int
+destination_ligne, int destination_colonne) {
+
+if(joueur_ligne==destination_ligne && joueur_colonne==destination_colonne) {
+    return JEU_ETAT_VICTOIRE;
+}
+    if(joueur_carburant==0) {
+        return JEU_ETAT_ECHEC;
+    }
+
+return JEU_ETAT_EN_COURS;
+
+}
