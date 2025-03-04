@@ -9,13 +9,14 @@
 //  ***********************************
 
 // Definir la fonction 'jeu_maj_carburant_joueur' ici
-void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_carburant, Terrain *) {
+void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_carburant, int terrain[NB_LIGNES][NB_COLONES]) {
 
-    *joueur_carburant += (terrain=carburant[joueur_ligne][joueur_colonne]);
-    terrain=(carburant[joueur_ligne][joueur_colonne] = 0);
     *joueur_carburant -= COUT_DEPLACEMENT_VOISIN;
-}
 
+    if(terrain[joueur_ligne][joueur_colonne] > 0){
+      *joueur_carburant += terrain[joueur_ligne][joueur_colonne];
+}
+terrain[joueur_ligne][joueur_colonne] = 0;
 
 // Definir la fonction 'jeu_deplacer_joueur' ici
 bool jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, t_direction direction) {
