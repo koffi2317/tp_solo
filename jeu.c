@@ -78,10 +78,26 @@ int jeu_verifier_choix_deplacement(const char *choix) {
         return DIRECTION_GAUCHE;
     }
 
-
     return DIRECTION_ERRONEE;
 }
 
 // Definir la fonction 'jeu_calculer_voisin' ici
+
+void jeu_calculer_voisin(int case_ligne, int case_colonne, const char *direction, int
+                         *voisin_ligne, int *voisin_colonne) {
+    if (strcmp(direction, "BAS") == 0) {
+        *voisin_ligne = case_ligne + 1;
+        *voisin_colonne = case_colonne;
+    } else if (strcmp(direction, "HAUT") == 0) {
+        *voisin_ligne = case_ligne - 1;
+        *voisin_colonne = case_colonne;
+    } else if (strcmp(direction, "DROITE") == 0) {
+        *voisin_ligne = case_ligne;
+        *voisin_colonne = case_colonne + 1;
+    } else if (strcmp(direction, "GAUCHE") == 0) {
+        *voisin_ligne = case_ligne;
+        *voisin_colonne = case_colonne - 1;
+    }
+}
 
 // Definir la fonction 'jeu_verifier_fin' ici
