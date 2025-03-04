@@ -1,7 +1,9 @@
 //
 // Created by stephane on 08/01/25.
 //
-
+#include "jeu.h"
+#include "terrain.h"
+#include <stdio.h>
 //  ***********************************
 //  Definitions des fonctions publiques
 //  ***********************************
@@ -37,15 +39,15 @@ bool jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, t_direction dir
           break;
 
         default:
-          return false;
+          return FALSE;
     }
 
     if (nouvelle_ligne >= 0 && nouvelle_ligne < 10 && nouvelle_colonne >= 0 && nouvelle_colonne < 10) {
         *joueur_ligne =  ligne_supplementaire;
         *joueur_colonne = colonne_supplementaire;
-        return true;
+        return TRUE;
     }
-    return false;
+    return FALSE;
 }
 // Definir la fonction 'jeu_init' ici
 
