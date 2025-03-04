@@ -63,7 +63,23 @@ void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int
 
 // Definir la fonction 'jeu_afficher_direction' ici
 
-void jeu_afficher_direction(char direction);
+void jeu_afficher_direction(int direction) {
+
+if(direction==DIRECTION_BAS) {
+    printf("BAS");
+}
+else if(direction==DIRECTION_HAUT) {
+    printf("HAUT");
+}
+
+else if(direction==DIRECTION_DROITE) {
+    printf("DROITE");
+}
+
+    else if(direction==DIRECTION_GAUCHE) {
+        printf("GAUCHE");
+    }
+}
 
 // Definir la fonction 'jeu_verifier_choix_deplacement' ici
 
