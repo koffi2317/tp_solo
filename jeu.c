@@ -21,7 +21,7 @@ void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_
 }
 
 // Definir la fonction 'jeu_deplacer_joueur' ici
-bool jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, t_direction direction) {
+int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, t_direction direction) {
     int ligne_supplementaire = *joueur_ligne, colonne_supplementaire = *joueur_colonne;
 
     switch (direction) {
