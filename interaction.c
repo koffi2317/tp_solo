@@ -6,6 +6,8 @@
 //  Definitions des fonctions publiques
 //  ***********************************
 
+#include <stdio.h>
+
 int interaction_presenter_jeu() {
     printf("----Jeux de déplacement de véhicule avec gestion de carburant----\n");
     printf("\n");
@@ -29,7 +31,7 @@ int interaction_presenter_jeu() {
 /*ne pas oublier de faire le texte en gris! important! demande a mister koffi*/
 //possiblement devoir refaire cett section! Koffi! si tu ne comprends pas  pk tu me le diras
 int interaction_afficher_options() {
-   int carburant, int choix, int distance = 1;
+   int carburant, choix, distance = 1;
 
    //il est dit qu'il y a DES options.... mais je ne sai spas quoi rajouté de plus(demander a koffi)
     printf("options d'intéractions \n");
