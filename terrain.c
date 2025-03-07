@@ -133,4 +133,5 @@ void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int
 
 // Definir la fonction 'terrain_afficher' ici
 
-void terrain_afficher();
+void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES],int courante,int
+destination_ligne, int destination_colonne);

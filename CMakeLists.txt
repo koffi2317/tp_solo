@@ -13,4 +13,6 @@ add_executable(tp_solo main.c
         interaction.h
         interaction.c
         dijkstra.h
-        dijkstra.c)
+        dijkstra.c
+        couleur.c
+        "couleur (2).h")
