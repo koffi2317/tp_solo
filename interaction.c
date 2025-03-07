@@ -7,6 +7,8 @@
 //  ***********************************
 
 #include <stdio.h>
+#include "interaction.h"
+
 
 void interaction_presenter_jeu() {
     printf("----Jeux de déplacement de véhicule avec gestion de carburant----\n");
@@ -56,8 +58,9 @@ void interaction_afficher_options() {
     printf("fin de la séquence d'intéraction\n");
 }
 
-t_action interaction_demander_action(int carburant) {
+int interaction_demander_action(int carburant) {
     int choix;
+   // t_action decision;
 
     do {
         printf("utilisé la touche 0 pour refusé la transaction.\n");
@@ -86,7 +89,7 @@ t_action interaction_demander_action(int carburant) {
             case 2:
                 return ACTION_QUITTER;
         }
-    }
+    } while();
 }
 
 // Definir la fonction 'interaction_demander_direction_deplacement' ici
