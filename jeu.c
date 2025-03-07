@@ -66,31 +66,31 @@ void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int
 void jeu_afficher_direction(int direction) {
 
 if(direction==DIRECTION_BAS) {
-    printf("BAS");
+    printf("DIRECTION BAS");
 }
 else if(direction==DIRECTION_HAUT) {
-    printf("HAUT");
+    printf("DIRECTION HAUT");
 }
 
 else if(direction==DIRECTION_DROITE) {
-    printf("DROITE");
+    printf("DIRECTION DROITE");
 }
 
     else if(direction==DIRECTION_GAUCHE) {
-        printf("GAUCHE");
+        printf("DIRECTION GAUCHE");
     }
 }
 
 // Definir la fonction 'jeu_verifier_choix_deplacement' ici
 
 int jeu_verifier_choix_deplacement(const char *choix) {
-    if (strcmp(choix, "BAS") == 0) {
+    if (strcmp(choix, "B") == 0|| strcmp(choix, "b")==0) {
         return DIRECTION_BAS;
-    } else if (strcmp(choix, "HAUT") == 0) {
+    } else if (strcmp(choix, "H") == 0|| strcmp(choix, "h")==0) {
         return DIRECTION_HAUT;
-    } else if (strcmp(choix, "DROITE") == 0) {
+    } else if (strcmp(choix, "D") == 0 || strcmp(choix, "d")==0) {
         return DIRECTION_DROITE;
-    } else if (strcmp(choix, "GAUCHE") == 0) {
+    } else if (strcmp(choix, "G") == 0 || strcmp(choix, "g")==0) {
         return DIRECTION_GAUCHE;
     }
 
@@ -99,18 +99,18 @@ int jeu_verifier_choix_deplacement(const char *choix) {
 
 // Definir la fonction 'jeu_calculer_voisin' ici
 
-void jeu_calculer_voisin(int case_ligne, int case_colonne, const char *direction, int
+void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int
                          *voisin_ligne, int *voisin_colonne) {
-    if (strcmp(direction, "BAS") == 0) {
+    if (direction==DIRECTION_BAS) {
         *voisin_ligne = case_ligne + 1;
         *voisin_colonne = case_colonne;
-    } else if (strcmp(direction, "HAUT") == 0) {
+    } else if (direction== DIRECTION_HAUT) {
         *voisin_ligne = case_ligne - 1;
         *voisin_colonne = case_colonne;
-    } else if (strcmp(direction, "DROITE") == 0) {
+    } else if (direction == DIRECTION_DROITE) {
         *voisin_ligne = case_ligne;
         *voisin_colonne = case_colonne + 1;
-    } else if (strcmp(direction, "GAUCHE") == 0) {
+    } else if (direction== DIRECTION_GAUCHE) {
         *voisin_ligne = case_ligne;
         *voisin_colonne = case_colonne - 1;
     }
