@@ -39,7 +39,7 @@ int interaction_afficher_options() {
     if (carburant >= 10) {
         printf("Vous avez la possibilité d'activé le bonus de déplacement\n");
         printf("preferez-vous avancer de 4 cases en échange de  10 litres de carburant?\n");
-        printf("(utilisé la touche 0 pour refusé la transaction ou la touche 1 pour accepter la transaction:\n");
+        printf("utilisé la touche 0 pour refusé la transaction ou la touche 1 pour accepter la transaction:\n");
 
         scanf("%d", &choix);
         if (choix == 1) {
