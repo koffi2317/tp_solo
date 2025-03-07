@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 
-int interaction_presenter_jeu() {
+void interaction_presenter_jeu() {
     printf("----Jeux de déplacement de véhicule avec gestion de carburant----\n");
     printf("\n");
     printf("****************************REGLEMENT****************************\n");
@@ -30,7 +30,7 @@ int interaction_presenter_jeu() {
 
 /*ne pas oublier de faire le texte en gris! important! demande a mister koffi*/
 //possiblement devoir refaire cett section! Koffi! si tu ne comprends pas  pk tu me le diras
-int interaction_afficher_options() {
+void interaction_afficher_options() {
    int carburant, choix, distance = 1;
 
    //il est dit qu'il y a DES options.... mais je ne sai spas quoi rajouté de plus(demander a koffi)
@@ -51,7 +51,7 @@ int interaction_afficher_options() {
         printf("Il est impossible pour vous de s'approprié un bonus\n");
         printf("*******  carburant requis est insuffisant  ********\n");
     }
-    return distance;
+   // return distance;
 
     printf("fin de la séquence d'intéraction\n");
 }
