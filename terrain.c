@@ -134,4 +134,31 @@ void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int
 // Definir la fonction 'terrain_afficher' ici
 
 void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES],int courante,int
-destination_ligne, int destination_colonne);
+destination_ligne, int destination_colonne) {
+
+for(int i=0;i<NB_LIGNES;i++) {
+    for(int j=0;j<NB_COLONNES;j++) {
+if(terrain[i][j]==courante) {
+
+    printf("%i");// avec couleur a revenir apres
+}
+        else if(i==destination_colonne&& j==destination_colonne) {
+            printf("");//avec couleur a revenir apres
+        }
+
+        else {
+            printf("%i\t",terrain[i][j]);
+        }
+
+
+
+    }
+}
+
+
+
+
+
+
+
+}
