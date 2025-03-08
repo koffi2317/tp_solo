@@ -95,6 +95,13 @@ int terrain_get_carburant(int terrain[NB_LIGNES][NB_COLONNES], int position_lign
 // Definir la fonction 'terrain_set_carburant' ici
 /*a ne pas oublier! tres important!*/
 
+void terrai_set_carburant(int terrain[NB_LIGNES][NB_COLONNES],int position_ligne, int
+position_colonne, int carburant) {
+
+terrain[position_ligne][position_colonne]=carburant;
+
+}
+
 // Definir la fonction 'terrain_init' ici
 
 void terrain_init(int terrain[NB_LIGNES][NB_COLONNES]) {
@@ -134,9 +141,7 @@ void terrain_creer_stations_carburant(int terrain[NB_LIGNES][NB_COLONNES], int
 // Definir la fonction 'terrain_afficher' ici
 
 void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES], int courante_ligne,int
-courante_colonne,
- int
-                      destination_ligne, int destination_colonne) {
+courante_colonne,int destination_ligne, int destination_colonne) {
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
             if (i==courante_ligne && j==courante_colonne) {
