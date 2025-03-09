@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include "interaction.h"
+#include "jeu.h"
 
 
 void interaction_presenter_jeu() {
@@ -29,7 +30,7 @@ void interaction_presenter_jeu() {
     printf("*******************************************************************\n");
     printf("\n");
 }
-s
+
 void interaction_afficher_options() {
    int carburant, choix, distance = 1;
 
@@ -46,11 +47,10 @@ void interaction_afficher_options() {
         if (choix == 1) {
             distance = 4;
         }
-    } else { //stp koffi! je dois mettre cette partie en gris
+    } else { //je dois mettre cette partie en gris
         printf("Il est impossible pour vous de s'approprié un bonus\n");
         printf("*******  carburant requis est insuffisant  ********\n");
     }
-   // return distance;
 
     printf("fin de la séquence d'intéraction\n");
 }
@@ -71,7 +71,8 @@ int interaction_demander_action(int carburant) {
           return ACTION_INVALIDE;
         }
 
-        switch (choix) {
+    // ReSharper disable once CppDFAUnreachableCode
+    switch (choix) {
             case 0:
                 return ACTION_DEPLACER;
             case 1:
@@ -84,6 +85,7 @@ int interaction_demander_action(int carburant) {
                 break;
             case 2:
                 return ACTION_QUITTER;
+            default: ;
         }
 }
 
@@ -91,80 +93,6 @@ t_direction interaction_demander_direction_deplacement() {
     char direction;
 
     printf("Veuillez entré une direction selon les critères établits\n");
-    printf("H = Haut, B = Bas, G = Gauche, D = Droite : ");
-    scanf(" %c", &direction);
-
-    switch (direction) {
-        case 'H':
-          return DIRECTION_HAUT;
-
-        case 'B':
-          return DIRECTION_BAS;
-
-        case 'G':
-          return DIRECTION_GAUCHE;
-
-        case 'D':
-          return DIRECTION_DROITE;
-
-        default:
-            printf("La direction entrée ne correspond pas aux choix présentés.\n");
-            return DIRECTION_ERRONEE;
-    }
-}
-
-int interaction_afficher_echec() {
-    printf("\n*****************************************\n");
-    printf("Vous n'avez pas atteint l'objectif demandée\n");
-    printf("Tu ne peux pas t'attendre à toujours gagner\n");
-    printf("\n*****************************************\n");
-    printf("\n");
-    printf("votre réservce de carburant est vidé de toute énergie.\n");
-    printf("La sortie n'a pas été atteint en raison de votre planification.\n");
-    printf(" Veuillez réessayez en planifiant vos déplacements.\n");
-}
-
-int interaction_afficher_victoire(int carburant) {
-
-    printf("\n*****************************************\n");
-    printf("******* un chemin épique! VICTOIRE! *******\n");
-    printf("*******************************************\n");
-    printf("\n");
-    printf("Victoire! Vous etes arrivé a la sortie tout en\n");
-    printf("planifiant un chemin efficace a votre reussite\n");
-    printf("\n");
-    printf("Le carburant restant est de : %d litres\n", carburant);
-}
-
-
-t_action interaction_verifier_choix_action(t_action action, int carburant) {
-
-  switch (action) {
-        case ACTION_DEPLACER:
-            return ACTION_DEPLACER;
-
-        case ACTION_ACHETER_BONUS:
-            if (carburant >= 10) {
-                return ACTION_ACHETER_BONUS;
-            } else {
-                printf("La quantité de carburant est insuffisante pour obtenir un bonus.\n");
-                return ACTION_INVALIDE;
-            }
-
-        case ACTION_QUITTER:
-            return ACTION_QUITTER;
-
-        default:
-            printf("L'action entrée est invalide\n");
-            return ACTION_INVALIDE;
-    }
-}
-
-#endif //CODE_INTERACTION_Ht_direction interaction_demander_direction_deplacement() {
-    char direction;
-
-    printf("Veuillez entré une direction selon les critères établits\n");
-    printf("Vous devez entrer la premiere lettre de la direction.\n");
     printf("H-aut, B-as, G-auche, D-roite : ");
     scanf(" %c", &direction);
 
@@ -187,7 +115,7 @@ t_action interaction_verifier_choix_action(t_action action, int carburant) {
     }
 }
 
-int interaction_afficher_echec() {
+void interaction_afficher_echec() {
     printf("\n*****************************************\n");
     printf("Vous n'avez pas atteint l'objectif demandée\n");
     printf("Tu ne peux pas t'attendre à toujours gagner\n");
@@ -195,10 +123,10 @@ int interaction_afficher_echec() {
     printf("\n");
     printf("votre réservce de carburant est vidé de toute énergie.\n");
     printf("La sortie n'a pas été atteint en raison de votre planification.\n");
-    printf(" Veuillez réessayez en planifiant vos déplacements avec précaution.\n");
+    printf(" Veuillez réessayez en planifiant vos déplacements.\n");
 }
 
-int interaction_afficher_victoire(int carburant) {
+void interaction_afficher_victoire(int carburant) {
 
     printf("\n*****************************************\n");
     printf("******* un chemin épique! VICTOIRE! *******\n");
@@ -233,5 +161,3 @@ t_action interaction_verifier_choix_action(t_action action, int carburant) {
             return ACTION_INVALIDE;
     }
 }
-
-#endif //CODE_INTERACTION_H

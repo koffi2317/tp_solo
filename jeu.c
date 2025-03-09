@@ -20,38 +20,51 @@ void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_
     terrain[joueur_ligne][joueur_colonne] = 0;
 }
 
-// Definir la fonction 'jeu_deplacer_joueur' ici
-int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, t_direction direction) {
-    int ligne_supplementaire = *joueur_ligne, colonne_supplementaire = *joueur_colonne;
+int jeu_deplacer_joueur (int *joueur_ligne, int *joueur_colonne, t_direction direction){
 
+    //joueur_ligne l'adresse de la ligne ou se trouve le joueur avant le deplacement et qui sera mise a jour
+    int nouvelle_ligne = *joueur_ligne;
+    //joueur_colonne Pointeur vers la colonne du joueur avant déplacement, mise à jour après déplacement.
+    int nouvelle_colonne = *joueur_colonne;
+    //les nouvelles coordonnées sont maintenant ajoutées et enregistrées.
+
+    //La direction choisie par l'utilisateur pour effectuer le déplacement.
+    //Les coordonnées seront modifier selon la direction
     switch (direction) {
-        case DIRECTION_HAUT:
-            ligne_supplementaire--;
-            break;
-
-        case DIRECTION_BAS:
-            ligne_supplementaire++;
-            break;
-
-        case DIRECTION_GAUCHE:
-            colonne_supplementaire--;
-            break;
-
         case DIRECTION_DROITE:
-            colonne_supplementaire++;
-            break;
-
+            nouvelle_colonne++;
+        break;
+        case DIRECTION_BAS:
+            nouvelle_ligne++;
+        break;
+        case DIRECTION_HAUT:
+            nouvelle_ligne--;
+        break;
+        case DIRECTION_GAUCHE:
+            nouvelle_colonne--;
+        break;
         default:
             return FALSE;
+        // La direction entrée par l'utilisateur est invalide
     }
 
-    if (nouvelle_ligne >= 0 && nouvelle_ligne < 10 && nouvelle_colonne >= 0 &&
-        nouvelle_colonne < 10) {
-        *joueur_ligne = ligne_supplementaire;
-        *joueur_colonne = colonne_supplementaire;
+    //Changement des coordonnées du joueur pour la case choisie
+    *joueur_ligne = nouvelle_ligne;
+    *joueur_colonne = nouvelle_colonne;
+
+    //si le déplacement n'a pu se faire dans les limites du terrain, c'est false.
+    if (nouvelle_ligne < 0){
+        return FALSE;
+    }else if (nouvelle_ligne >= TAILLE_TAB){
+        return FALSE;
+    }else if(nouvelle_colonne < 0){
+        return FALSE;
+    }else if(nouvelle_colonne >= TAILLE_TAB){
+        return FALSE;
+    }else{
         return TRUE;
     }
-    return FALSE;
+    //true si le déplacement a pu se faire dans les limites du terrain.
 }
 
 // Definir la fonction 'jeu_init' ici

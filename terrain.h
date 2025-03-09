@@ -9,6 +9,7 @@
 #define NB_LIGNES 10
 #define NB_COLONNES 10
 #define DISTANCE_MIN 10
+#define TAILLE_TAB 10
 #define TRUE 1
 #define FALSE 0
 #define NULL 0
