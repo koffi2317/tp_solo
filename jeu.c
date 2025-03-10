@@ -53,19 +53,12 @@ int jeu_deplacer_joueur (int *joueur_ligne, int *joueur_colonne, t_direction dir
     *joueur_colonne = nouvelle_colonne;
 
     //si le déplacement n'a pu se faire dans les limites du terrain, c'est false.
-    if (nouvelle_ligne < 0){
+    if(nouvelle_ligne < 0 || nouvelle_colonne < 0||nouvelle_ligne >= TAILLE_TAB||nouvelle_colonne >= TAILLE_TAB ) {
         return FALSE;
-    }else if (nouvelle_ligne >= TAILLE_TAB){
-        return FALSE;
-    }else if(nouvelle_colonne < 0){
-        return FALSE;
-    }else if(nouvelle_colonne >= TAILLE_TAB){
-        return FALSE;
-    }else{
+    }
         return TRUE;
     }
     //true si le déplacement a pu se faire dans les limites du terrain.
-}
 
 // Definir la fonction 'jeu_init' ici
 
@@ -78,18 +71,13 @@ void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int
 
 void jeu_afficher_direction(int direction) {
 
-if(direction==DIRECTION_BAS) {
-    printf("DIRECTION BAS");
-}
-else if(direction==DIRECTION_HAUT) {
-    printf("DIRECTION HAUT");
-}
-
-else if(direction==DIRECTION_DROITE) {
-    printf("DIRECTION DROITE");
-}
-
-    else if(direction==DIRECTION_GAUCHE) {
+    if(direction==DIRECTION_BAS) {
+        printf("DIRECTION BAS");
+    }else if(direction==DIRECTION_HAUT) {
+        printf("DIRECTION HAUT");
+    }else if(direction==DIRECTION_DROITE) {
+        printf("DIRECTION DROITE");
+    }else if(direction==DIRECTION_GAUCHE) {
         printf("DIRECTION GAUCHE");
     }
 }
