@@ -110,6 +110,7 @@ quantité_globale) {
 
 void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES], int courante_ligne, int courante_colonne,
                       int destination_ligne, int destination_colonne) {
+    printf("TERRAIN :\n");
     printf("\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t\n");
     for (int i = 0; i < NB_LIGNES; i++) {
         printf("%i\t",i);
