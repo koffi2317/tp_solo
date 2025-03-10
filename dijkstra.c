@@ -17,6 +17,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 //  **********************************
 //  Declarations des fonctions privees
 //  **********************************
+
 /**
  * @brief Initialise tous les couts avec le plus grand entier du type int.
  * Initialise egalement le cout de la case du joueur a 0.
