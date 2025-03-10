@@ -14,6 +14,7 @@
 #define FALSE 0
 #define NULL 0
 
+
 //  *****************************
 //  Definitions des types publics
 //  *****************************

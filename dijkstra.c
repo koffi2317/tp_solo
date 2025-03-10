@@ -42,7 +42,7 @@ void initialiser_couts(t_couts couts, int joueur_ligne, int joueur_colonne) {
    if(i==joueur_ligne && j==joueur_colonne){
     couts[i][j] = 0;
    }
-   couts[i][j] =9;
+   couts[i][j]=VALEUR_MAX;
 
   }
   //à l'exception de la case de départ du joueur, dont le coût est initialisé à 0.
