@@ -32,7 +32,7 @@ void interaction_presenter_jeu() {
 }
 
 void interaction_afficher_options() {
-   int carburant, choix, distance = 1;
+   int carburant, choix, distance = 1; //la distance est le nombre de case parcourue
 
     printf("options d'intéractions \n");
     printf("\n");
@@ -70,7 +70,6 @@ int interaction_demander_action(int carburant) {
           printf("Le choix entré ne correspond pas aux options présentées\n");
           return ACTION_INVALIDE;
         }
-
     // ReSharper disable once CppDFAUnreachableCode
     switch (choix) {
             case 0:
