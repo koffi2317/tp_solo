@@ -6,6 +6,8 @@
 //  Definitions des types prives
 //  ****************************
 //  Type pour le tableau des couts qui donne le cout en carburant du plus court chemin du depart a l'une des cases du terrain
+#include "dijkstra.h"
+
 #include "terrain.h"
 #include "jeu.h"
 #include <stdbool.h>
@@ -29,6 +31,24 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
+void initialiser_couts(t_couts couts, int joueur_ligne, int joueur_colonne) {
+ //tableau bidimensionnel d'entiers (Tableau des coûts)
+ for(int i = 0; i < NB_LIGNES; i++){
+  for(int j = 0; j < NB_COLONNES; j++){
+
+   //Au départ toutes les cases sont à une valeur infinie
+   //Tab couts va Initialise les couts avec le plus grand entier du type int. couts[i][j] = 0;
+
+   if(i==joueur_ligne && j==joueur_colonne){
+    couts[i][j] = 0;
+   }
+   couts[i][j] =9;
+
+  }
+  //à l'exception de la case de départ du joueur, dont le coût est initialisé à 0.
+
+ }
+}
 
 /**
  * @brief Initialise toutes les cases a non visitee.

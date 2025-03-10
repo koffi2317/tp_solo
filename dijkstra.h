@@ -6,7 +6,7 @@
 #define CODE_DIJKSTRA_H
 
 #define NB_CASES_BONUS 4
-
+#define VALEUR_MAX
 //  ************************************
 //  Declarations des fonctions publiques
 //  ************************************
