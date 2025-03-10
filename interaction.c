@@ -10,6 +10,7 @@
 #include "interaction.h"
 #include "jeu.h"
 #include <ctype.h>
+#include "couleur (2).h"
 
 
 void interaction_presenter_jeu() {
@@ -38,11 +39,13 @@ void interaction_afficher_options(int carburant) {
 
     if (carburant >= 10){
         printf("1. Se deplacer\n");
-        printf("2. Acheter un bonus\n"); //la couleur est celle normal
+        printf("2. Acheter un bonus\n");
         printf("3. Quitter\n");
     } else {
         printf("1. Se deplacer\n");
-        printf("2. Acheter un bonus\n"); // la couleur doit etre grise si < 10 carburant
+        couleur_set(0,90, 40);
+        printf("2. Acheter un bonus\n");
+        couleur_reset();
         printf("3. Quitter\n");
     }
 }

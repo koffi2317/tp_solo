@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "couleur (2).h"
 
 //  ***********************************
 //  Definitions des fonctions publiques
@@ -111,14 +112,22 @@ quantité_globale) {
 void terrain_afficher(int terrain[NB_LIGNES][NB_COLONNES], int courante_ligne, int courante_colonne,
                       int destination_ligne, int destination_colonne) {
     printf("TERRAIN :\n");
+    couleur_set(7,30,47);
     printf("\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\t\n");
+    couleur_reset();
     for (int i = 0; i < NB_LIGNES; i++) {
+        couleur_set(7, 30, 47);
         printf("%i\t",i);
+        couleur_reset();
         for (int j = 0; j < NB_COLONNES; j++) {
             if (i == courante_ligne && j == courante_colonne) {
+                couleur_set(0, 32, 40);
                 printf("X\t");
+                couleur_reset();
             } else if (i == destination_ligne && j == destination_colonne) {
+                couleur_set(0, 31, 40);
                 printf("S\t");
+                couleur_reset();
             } else {
                 printf("%i\t", terrain[i][j]);
             }
