@@ -44,19 +44,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2024.3.1.1\bin\cmake\win\x64\bin\cmake.exe"
+CMAKE_COMMAND = C:\Users\owass\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2024.3.1.1\bin\cmake\win\x64\bin\cmake.exe" -E rm -f
+RM = C:\Users\owass\AppData\Local\Programs\CLion\bin\cmake\win\x64\bin\cmake.exe -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo
+CMAKE_SOURCE_DIR = "C:\Users\owass\OneDrive - ETS\Desktop\INF155 TP1\tp_solo"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\owass\OneDrive - ETS\Desktop\INF155 TP1\tp_solo\cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -80,14 +80,14 @@ clean: CMakeFiles/tp_solo.dir/clean
 CMakeFiles/tp_solo.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\tp_solo.dir\build.make CMakeFiles/tp_solo.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\tp_solo.dir\build.make CMakeFiles/tp_solo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target tp_solo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="C:\Users\owass\OneDrive - ETS\Desktop\INF155 TP1\tp_solo\cmake-build-debug\CMakeFiles" --progress-num=1,2,3,4,5,6,7,8 "Built target tp_solo"
 .PHONY : CMakeFiles/tp_solo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/tp_solo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\cmake-build-debug\CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\owass\OneDrive - ETS\Desktop\INF155 TP1\tp_solo\cmake-build-debug\CMakeFiles" 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/tp_solo.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\owass\OneDrive - ETS\Desktop\INF155 TP1\tp_solo\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/tp_solo.dir/rule
 
 # Convenience name for target.
