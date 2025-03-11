@@ -15,7 +15,13 @@ typedef int t_couts[NB_LIGNES][NB_COLONNES];
 
 //  Type pour le tableau 2D permettant de savoir si une case a deja ete visitee lors de l'algorithme de Dijkstra
 typedef bool t_visites[NB_LIGNES][NB_COLONNES];
-
+void initialiser_visitees(t_visitees visitees) {
+    for (int i = 0; i < NB_LIGNES; i++) {
+        for (int j = 0; j < NB_COLONNES; j++) {
+            visitees[i][j] = false;  // Toutes les cases ne sont pas visitées au départ, c'est pourquoi on met false.
+        }
+    }
+}
 //  Type pour coder la direction d'ou on vient pour atteindre l'une des cases du terrain en suivant le plus court chemin
 typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 
