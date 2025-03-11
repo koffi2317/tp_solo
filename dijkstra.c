@@ -22,6 +22,15 @@ void initialiser_visitees(t_visitees visitees) {
         }
     }
 }
+// Fonction pour afficher l'état des cases visitées
+void afficher_visitees(const t_visitees visitees) {
+    for (int i = 0; i < TAILLE; i++) {
+        for (int j = 0; j < TAILLE; j++) {
+            printf("%d ", visitees[i][j]); 
+        }
+        printf("\n");
+    }
+}
 //  Type pour coder la direction d'ou on vient pour atteindre l'une des cases du terrain en suivant le plus court chemin
 typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 
