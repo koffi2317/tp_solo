@@ -6,17 +6,39 @@
 //  Definitions des types prives
 //  ****************************
 //  Type pour le tableau des couts qui donne le cout en carburant du plus court chemin du depart a l'une des cases du terrain
+#include "dijkstra.h"
+#include "terrain.h"
+#include "jeu.h"
+#include <stdio.h>
+#include <stdbool.h>
+
 typedef int t_couts[NB_LIGNES][NB_COLONNES];
 
 //  Type pour le tableau 2D permettant de savoir si une case a deja ete visitee lors de l'algorithme de Dijkstra
 typedef bool t_visites[NB_LIGNES][NB_COLONNES];
-
+void initialiser_visitees(t_visitees visitees) {
+    for (int i = 0; i < NB_LIGNES; i++) {
+        for (int j = 0; j < NB_COLONNES; j++) {
+            visitees[i][j] = false;  // Toutes les cases ne sont pas visitées au départ, c'est pourquoi on met false.
+        }
+    }
+}
+// Fonction pour afficher l'état des cases visitées
+void afficher_visitees(const t_visitees visitees) {
+    for (int i = 0; i < TAILLE; i++) {
+        for (int j = 0; j < TAILLE; j++) {
+            printf("%d ", visitees[i][j]); 
+        }
+        printf("\n");
+    }
+}
 //  Type pour coder la direction d'ou on vient pour atteindre l'une des cases du terrain en suivant le plus court chemin
 typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 
 //  **********************************
 //  Declarations des fonctions privees
 //  **********************************
+
 /**
  * @brief Initialise tous les couts avec le plus grand entier du type int.
  * Initialise egalement le cout de la case du joueur a 0.
@@ -26,6 +48,24 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
+void initialiser_couts(t_couts couts, int joueur_ligne, int joueur_colonne) {
+ //tableau bidimensionnel d'entiers (Tableau des coûts)
+ for(int i = 0; i < NB_LIGNES; i++){
+  for(int j = 0; j < NB_COLONNES; j++){
+
+   //Au départ toutes les cases sont à une valeur infinie
+   //Tab couts va Initialise les couts avec le plus grand entier du type int. couts[i][j] = 0;
+
+   if(i==joueur_ligne && j==joueur_colonne){
+    couts[i][j] = 0;
+   }
+   couts[i][j]=VALEUR_MAX;
+
+  }
+  //à l'exception de la case de départ du joueur, dont le coût est initialisé à 0.
+
+ }
+}
 
 /**
  * @brief Initialise toutes les cases a non visitee.
