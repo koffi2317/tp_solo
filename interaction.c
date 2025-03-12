@@ -8,34 +8,36 @@
 
 #include <stdio.h>
 #include "interaction.h"
-#include "jeu.h"
 #include <ctype.h>
-#include "couleur (2).h"
+#include "couleur.h"
 
 
 void interaction_presenter_jeu() {
-    printf("========= Jeu de navigation et gestion de carburant =========\n\n");
+    printf("*********************************************************\n");
+    printf("            Bienvenue dans le Jeu !\n");
+    printf("*********************************************************\n");
 
-    printf("********************** REGLEMENT **********************\n");
-    printf("Le but du jeu est d'atteindre la sortie avant d'épuiser le carburant.\n");
-    printf("Chaque déplacement consomme 1 litre de carburant.\n");
-    printf("Si le véhicule s'arrête avant la sortie, la partie est perdue.\n\n");
+    printf("\n*********************** REGLEMENT ***********************\n");
+    printf("Le but du jeu est d'atteindre la sortie avant d'epuiser le carburant.\n");
+    printf("Chaque deplacement consomme 1 litre de carburant.\n");
+    printf("Si le vehicule s'arrete avant la sortie, la partie est perdue.\n\n");
 
     printf("********************** MODE DE JEU **********************\n");
-    printf("Déplacements : Chaque mouvement coûte 1 litre de carburant.\n");
-    printf("Bonus de déplacement : Déplacez-vous de 4 cases d'un coup contre 10 litres.\n");
-    printf("Stratégie : Gérez bien votre carburant pour éviter la panne !\n\n");
+    printf("Deplacements : Chaque mouvement coute 1 litre de carburant.\n");
+    printf("Bonus de deplacement : Deplacez-vous de 4 cases d'un coup contre 10 litres.\n");
+    printf("Strategie : Gerez bien votre carburant pour eviter la panne !\n\n");
 
-    printf("Astuce : Chaque case du terrain contient une quantité aléatoire de\n");
-    printf("carburant (de 0 à 9 litres) qui sera ajoutée à votre réserve.\n");
+    printf("Astuce : Chaque case du terrain contient une quantite aleatoire de\n");
+    printf("carburant (de 0 a 9 litres) qui sera ajoutee a votre reserve.\n");
     printf("*********************************************************\n\n");
 }
 
 void interaction_afficher_options(int carburant) {
-    printf("Carburant restant : %i",carburant);
-    printf("---------------------------------------------------------");
-    printf("CHOIX D'ACTION \n");
+    printf("Carburant restant : %i\n",carburant);
     printf("\n");
+    printf("----------------------------------------------------------------------------------\n");
+    printf("\n");
+    printf("CHOIX D'ACTION :\n");
 
     if (carburant >= 10){
         printf("1. Se deplacer\n");
@@ -43,9 +45,9 @@ void interaction_afficher_options(int carburant) {
         printf("3. Quitter\n");
     } else {
         printf("1. Se deplacer\n");
-        couleur_set(0,90, 40);
+        //couleur_set(0,90, 40);
         printf("2. Acheter un bonus\n");
-        couleur_reset();
+        //couleur_reset();
         printf("3. Quitter\n");
     }
 }
@@ -54,7 +56,7 @@ int interaction_demander_action(int carburant) {
     int choix;
 
     do{
-        printf("Votre choix : ");
+        printf("\nVotre choix : ");
         scanf("%d", &choix);
         if (choix != 1 && choix != 2 && choix != 3){
             printf("Erreur : choix invalide !\n");
@@ -80,41 +82,28 @@ t_direction interaction_demander_direction_deplacement() {
     printf("Veuillez choisir une direction parmi les options suivantes :\n");
     printf("H - Haut, B - Bas, G - Gauche, D - Droite : ");
     scanf(" %c", &direction);
-
     direction = toupper(direction);
 
-    switch (direction) {
-        case 'H':
-          return DIRECTION_HAUT;
-
-        case 'B':
-          return DIRECTION_BAS;
-
-        case 'G':
-          return DIRECTION_GAUCHE;
-
-        case 'D':
-          return DIRECTION_DROITE;
-
-        default:                    //Possibilite de mettre un message d'erreur ici
-            return DIRECTION_ERRONEE;
-    }
+    return jeu_verifier_choix_deplacement(&direction);
 }
 
 void interaction_afficher_echec() {
+    printf("\n");
     printf("********************** GAME OVER **********************\n");
-    printf("Vous êtes tombé en panne de carburant !\n");
-    printf("Le véhicule ne peut plus avancer. Vous devez gérer votre carburant ");
-    printf("avec plus de précaution.\n");
+    printf("Vous etes tombe en panne de carburant !\n");
+    printf("Le vehicule ne peut plus avancer. Vous devez gerer votre carburant ");
+    printf("avec plus de precaution.\n");
     printf("Essayez de nouveau pour atteindre la sortie !\n");
 }
 
 void interaction_afficher_victoire(int carburant) {
+    printf("\n");
     printf("********************** VICTOIRE **********************\n");
-    printf("Félicitations ! Vous avez atteint la sortie avec succès ! "
-           "Vous avez bien géré votre carburant et pris les bonnes décisions.\n");
+    printf("Felicitations ! Vous avez atteint la sortie avec succes !\n");
+    printf("Vous avez bien gere votre carburant et pris les bonnes decisions.\n");
+    printf("\n");
     printf("Carburant restant : %d litres\n", carburant);
-    printf("Bravo et merci d'avoir joué !\n");
+    printf("Bravo et merci d'avoir joue !\n");
 }
 
 

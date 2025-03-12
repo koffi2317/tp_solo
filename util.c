@@ -17,8 +17,6 @@ int valeur_absolue_donnee(int nombre_a) {
 }
 
 int util_generer_nombre_aleatoire(int min, int max) {
-    srand((unsigned int) time(NULL));
-    rand();
     return min + (int) (rand() / (RAND_MAX + 0.001) * (max - min + 1));
 }
 
