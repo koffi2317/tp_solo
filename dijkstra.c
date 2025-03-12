@@ -7,10 +7,11 @@
 //  ****************************
 //  Type pour le tableau des couts qui donne le cout en carburant du plus court chemin du depart a l'une des cases du terrain
 #include "dijkstra.h"
-
 #include "terrain.h"
 #include "jeu.h"
+#include <stdio.h>
 #include <stdbool.h>
+
 typedef int t_couts[NB_LIGNES][NB_COLONNES];
 
 //  Type pour le tableau 2D permettant de savoir si une case a deja ete visitee lors de l'algorithme de Dijkstra
