@@ -43,7 +43,7 @@ void afficher_direction_suggeree(int directions[]);
  * @param joueur_ligne la ligne ou se trouve le joueur
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
-//  Ecrire le prototype de la fonction 'initialiser_couts' ici
+//  Ecrire le prototype de la fonction 'initialiser_couts' ici bon!
   //à l'exception de la case de départ du joueur, dont le coût est initialisé à 0.
 
 
@@ -52,7 +52,7 @@ void afficher_direction_suggeree(int directions[]);
  * @name initialiser_visitees
  * @param visitees le tableau bi-dimensionnel qui indique, pour chaque case, si elle a deja ete visitee ou non.
  */
-//  Ecrire le prototype de la fonction 'initialiser_visitees' ici
+//  Ecrire le prototype de la fonction 'initialiser_visitees' ici bon!
 
 /**
  * @brief Indique si une case donnee a deja ete visitee au cours de l'algorithme.
@@ -62,7 +62,7 @@ void afficher_direction_suggeree(int directions[]);
  * @param case_colonne la colonne de la case a tester
  * @return true si la case a deja ete visitee, false sinon
  */
-//  Ecrire le prototype de la fonction 'est_case_visitee' ici
+//  Ecrire le prototype de la fonction 'est_case_visitee' ici bon!
 
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
@@ -72,7 +72,7 @@ void afficher_direction_suggeree(int directions[]);
  * @param case_choisie_ligne l'adresse ou deposer la ligne de la case choisie
  * @param case_choisie_colonne l'adresse ou deposer la colonne de la case choisie
  */
-//  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici
+//  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici bon!
 
 /**
  * @brief Retourne le cout de deplacement pour aller d'une case a une case voisine.
@@ -83,7 +83,7 @@ void afficher_direction_suggeree(int directions[]);
  * @return le cout du chemin pour se rendre a la case voisine specifiee en parametre
  * @note le cout pour aller d'une case a l'une de ses voisines est 1 + (9 - carburant dans la case voisine)
  */
-//  Ecrire le prototype de la fonction 'cout_deplacement' ici
+//  Ecrire le prototype de la fonction 'cout_deplacement'  bon!
 
 /**
  * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
@@ -222,20 +222,6 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
     }
 }
 
-/**
- * @brief Algorithme de Dijkstra pour calculer le plus court chemin en partent de la position du joueur pour atteindre
- * la position de destination.
- * @name dijkstra
- * @param terrain la terrain sur lequel le joueur evolue
- * @param joueur_ligne la ligne ou se trouve le joueur
- * @param joueur_colonne la colonne ou se trouve le joueur
- * @param destination_ligne la ligne de la case a atteindre
- * @param destination_colonne la colonne de la case a atteindre
- * @param directions les 4 premieres directions a suivre sur le plus court chemin
- * @return
- */
-//  Ecrire le prototype de la fonction 'dijkstra' ici
-
  void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_precedents precedents) {
     t_couts couts;
     t_visites visitees;
@@ -279,9 +265,9 @@ void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int jou
         for (int j = 0; j < NB_COLONNES; j++) {
 
             if (i == joueur_ligne && j == joueur_colonne) {
-                printf(" X ");
+                printf("  ");
             } else if (i == destination_ligne && j == destination_colonne) {
-                printf(" S ");
+                printf("  ");
             } else if (visitees[i][j]) {
                 printf(" %2d ", couts[i][j]);
             } else {
@@ -289,7 +275,7 @@ void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int jou
             }
         }
     }
-    // printf(tab couts)
+    // printf(tab couts)?
 }
 
 void afficher_direction_suggeree(int directions[]) {
