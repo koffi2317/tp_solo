@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/owass/OneDrive - ETS/Desktop/INF155 TP1/tp_solo/couleur.c" "CMakeFiles/tp_solo.dir/couleur.c.obj" "gcc" "CMakeFiles/tp_solo.dir/couleur.c.obj.d"
-  "C:/Users/owass/OneDrive - ETS/Desktop/INF155 TP1/tp_solo/dijkstra.c" "CMakeFiles/tp_solo.dir/dijkstra.c.obj" "gcc" "CMakeFiles/tp_solo.dir/dijkstra.c.obj.d"
-  "C:/Users/owass/OneDrive - ETS/Desktop/INF155 TP1/tp_solo/interaction.c" "CMakeFiles/tp_solo.dir/interaction.c.obj" "gcc" "CMakeFiles/tp_solo.dir/interaction.c.obj.d"
-  "C:/Users/owass/OneDrive - ETS/Desktop/INF155 TP1/tp_solo/jeu.c" "CMakeFiles/tp_solo.dir/jeu.c.obj" "gcc" "CMakeFiles/tp_solo.dir/jeu.c.obj.d"
-  "C:/Users/owass/OneDrive - ETS/Desktop/INF155 TP1/tp_solo/main.c" "CMakeFiles/tp_solo.dir/main.c.obj" "gcc" "CMakeFiles/tp_solo.dir/main.c.obj.d"
-  "C:/Users/owass/OneDrive - ETS/Desktop/INF155 TP1/tp_solo/terrain.c" "CMakeFiles/tp_solo.dir/terrain.c.obj" "gcc" "CMakeFiles/tp_solo.dir/terrain.c.obj.d"
-  "C:/Users/owass/OneDrive - ETS/Desktop/INF155 TP1/tp_solo/util.c" "CMakeFiles/tp_solo.dir/util.c.obj" "gcc" "CMakeFiles/tp_solo.dir/util.c.obj.d"
+  "C:/Users/Admin/OneDrive/Documents/GitHub/tp_solo/couleur.c" "CMakeFiles/tp_solo.dir/couleur.c.obj" "gcc" "CMakeFiles/tp_solo.dir/couleur.c.obj.d"
+  "C:/Users/Admin/OneDrive/Documents/GitHub/tp_solo/dijkstra.c" "CMakeFiles/tp_solo.dir/dijkstra.c.obj" "gcc" "CMakeFiles/tp_solo.dir/dijkstra.c.obj.d"
+  "C:/Users/Admin/OneDrive/Documents/GitHub/tp_solo/interaction.c" "CMakeFiles/tp_solo.dir/interaction.c.obj" "gcc" "CMakeFiles/tp_solo.dir/interaction.c.obj.d"
+  "C:/Users/Admin/OneDrive/Documents/GitHub/tp_solo/jeu.c" "CMakeFiles/tp_solo.dir/jeu.c.obj" "gcc" "CMakeFiles/tp_solo.dir/jeu.c.obj.d"
+  "C:/Users/Admin/OneDrive/Documents/GitHub/tp_solo/main.c" "CMakeFiles/tp_solo.dir/main.c.obj" "gcc" "CMakeFiles/tp_solo.dir/main.c.obj.d"
+  "C:/Users/Admin/OneDrive/Documents/GitHub/tp_solo/terrain.c" "CMakeFiles/tp_solo.dir/terrain.c.obj" "gcc" "CMakeFiles/tp_solo.dir/terrain.c.obj.d"
+  "C:/Users/Admin/OneDrive/Documents/GitHub/tp_solo/util.c" "CMakeFiles/tp_solo.dir/util.c.obj" "gcc" "CMakeFiles/tp_solo.dir/util.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

@@ -9,11 +9,10 @@
 #include "dijkstra.h"
 #include "terrain.h"
 #include "jeu.h"
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 #define INFINITY 9
 #define NB_DIRECTIONS 4
-
 typedef int t_couts[NB_LIGNES][NB_COLONNES];
 
 //  Type pour le tableau 2D permettant de savoir si une case a deja ete visitee lors de l'algorithme de Dijkstra
@@ -212,7 +211,7 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
 
         if (voisin_ligne >= 0 && voisin_ligne < NB_LIGNES && voisin_colonne >= 0 && voisin_colonne < NB_COLONNES) {
 
-            if (visitees[voisin_ligne][voisin_colonne]) {
+            if (!visitees[voisin_ligne][voisin_colonne]) {
                 int nouveau_cout = couts[courante_ligne][courante_colonne] + cout_deplacement(terrain[voisin_ligne][voisin_colonne]);
 
                 if (nouveau_cout < couts[voisin_ligne][voisin_colonne]) {
@@ -222,6 +221,20 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
         }
     }
 }
+
+/**
+ * @brief Algorithme de Dijkstra pour calculer le plus court chemin en partent de la position du joueur pour atteindre
+ * la position de destination.
+ * @name dijkstra
+ * @param terrain la terrain sur lequel le joueur evolue
+ * @param joueur_ligne la ligne ou se trouve le joueur
+ * @param joueur_colonne la colonne ou se trouve le joueur
+ * @param destination_ligne la ligne de la case a atteindre
+ * @param destination_colonne la colonne de la case a atteindre
+ * @param directions les 4 premieres directions a suivre sur le plus court chemin
+ * @return
+ */
+//  Ecrire le prototype de la fonction 'dijkstra' ici
 
  void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_precedents precedents) {
     t_couts couts;
@@ -247,7 +260,7 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
         //maj_voisins(couts, visitees, terrain, precedents, case_ligne, case_colonne);
     }
 }
-/* a refaire
+
 int calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[4]) {
     int ligne = destination_ligne, colonne = destination_colonne;
     int i = 0;
@@ -258,7 +271,7 @@ int calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_
         colonne -= (direction == 3) - (direction == 2);
     }
     return i;
-}*/
+}
 
 //  Ecrire le prototype de la fonction 'afficher_couts' ici
 void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
@@ -280,8 +293,14 @@ void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int jou
 }
 
 void afficher_direction_suggeree(int directions[]) {
-    printf("A partir de l'algorithme, les directions suggérées pour atteindre la sortie sont:  ");
+    printf("À partir de l'algorithme, les directions suggérées sont:\n ");
     for (int i = 0; i < NB_DIRECTIONS; i++) {
         printf("%d ", directions[i]);
     }
 }
+/**
+ * @brief Affiche les 4 premieres directions a suivre sur le plus court chemin pour joindre la destination a partir de la position du joueur
+ * @name afficher_direction_suggeree
+ * @param dircetions les premieres directions a suivre sur le plus court chemin
+ * @param nb le nombre de directions a suivre
+ */
