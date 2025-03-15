@@ -43,7 +43,11 @@ void afficher_direction_suggeree(int directions[]);
  * @param joueur_ligne la ligne ou se trouve le joueur
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
+<<<<<<< Updated upstream
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici bon!
+=======
+//  Ecrire le prototype de la fonction 'initialiser_couts' ici
+>>>>>>> Stashed changes
   //à l'exception de la case de départ du joueur, dont le coût est initialisé à 0.
 
 
@@ -222,6 +226,23 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
     }
 }
 
+<<<<<<< Updated upstream
+=======
+/**
+ * @brief Algorithme de Dijkstra pour calculer le plus court chemin en partent de la position du joueur pour atteindre
+ * la position de destination.
+ * @name dijkstra
+ * @param terrain la terrain sur lequel le joueur evolue
+ * @param joueur_ligne la ligne ou se trouve le joueur
+ * @param joueur_colonne la colonne ou se trouve le joueur
+ * @param destination_ligne la ligne de la case a atteindre
+ * @param destination_colonne la colonne de la case a atteindre
+ * @param directions les 4 premieres directions a suivre sur le plus court chemin
+ * @return
+ */
+//  Ecrire le prototype de la fonction 'dijkstra' ici
+
+>>>>>>> Stashed changes
  void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_precedents precedents) {
     t_couts couts;
     t_visites visitees;
@@ -265,9 +286,15 @@ void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int jou
         for (int j = 0; j < NB_COLONNES; j++) {
 
             if (i == joueur_ligne && j == joueur_colonne) {
+<<<<<<< Updated upstream
                 printf("  ");
             } else if (i == destination_ligne && j == destination_colonne) {
                 printf("  ");
+=======
+                printf(" X ");
+            } else if (i == destination_ligne && j == destination_colonne) {
+                printf(" S ");
+>>>>>>> Stashed changes
             } else if (visitees[i][j]) {
                 printf(" %2d ", couts[i][j]);
             } else {
@@ -275,7 +302,11 @@ void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int jou
             }
         }
     }
+<<<<<<< Updated upstream
     // printf(tab couts)?
+=======
+    // printf(tab couts)
+>>>>>>> Stashed changes
 }
 
 void afficher_direction_suggeree(int directions[]) {
