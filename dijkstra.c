@@ -47,6 +47,9 @@ void afficher_direction_suggeree(int directions[]);
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici bon!
 =======
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   //à l'exception de la case de départ du joueur, dont le coût est initialisé à 0.
 
@@ -227,7 +230,10 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 /**
  * @brief Algorithme de Dijkstra pour calculer le plus court chemin en partent de la position du joueur pour atteindre
  * la position de destination.
@@ -242,6 +248,9 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
  */
 //  Ecrire le prototype de la fonction 'dijkstra' ici
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
  void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_precedents precedents) {
     t_couts couts;
@@ -287,9 +296,15 @@ void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int jou
 
             if (i == joueur_ligne && j == joueur_colonne) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 printf("  ");
             } else if (i == destination_ligne && j == destination_colonne) {
                 printf("  ");
+=======
+                printf(" X ");
+            } else if (i == destination_ligne && j == destination_colonne) {
+                printf(" S ");
+>>>>>>> Stashed changes
 =======
                 printf(" X ");
             } else if (i == destination_ligne && j == destination_colonne) {
@@ -303,7 +318,11 @@ void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int jou
         }
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // printf(tab couts)?
+=======
+    // printf(tab couts)
+>>>>>>> Stashed changes
 =======
     // printf(tab couts)
 >>>>>>> Stashed changes
