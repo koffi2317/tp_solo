@@ -11,11 +11,13 @@
 
 int main(void)
 {
-    int sortie_colonne, sortie_ligne;
-    int depart_ligne, depart_colonne;
-    int terrain[NB_LIGNES][NB_COLONNES];
-    int carburant = JOUEUR_CARBURANT_INITIAL;
+    //Déclaration des variables
+    int sortie_colonne, sortie_ligne; //Coordonnées de la sortie du terrain
+    int depart_ligne, depart_colonne; //Coordonnées du joueur au départ 
+    int terrain[NB_LIGNES][NB_COLONNES]; //Terrain de jeu
+    int carburant = JOUEUR_CARBURANT_INITIAL;//Carburant initial du joueur
 
+    //Initialisation du générateur de nombres aléatoires 
     srand((unsigned int) time(NULL));
 
     interaction_presenter_jeu();
