@@ -1,9 +1,6 @@
-CMakeFiles/tp_solo.dir/dijkstra.c.obj: \
- C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\dijkstra.c \
- C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\dijkstra.h \
- C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\terrain.h \
- C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\jeu.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.3.1.1/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdbool.h \
+CMakeFiles/tp_solo.dir/couleur.c.obj: \
+ C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\couleur.c \
+ C:\Users\Admin\OneDrive\Documents\GitHub\tp_solo\couleur.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.1.1/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3.1.1/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \

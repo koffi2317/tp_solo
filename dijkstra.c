@@ -30,7 +30,7 @@ void initialiser_couts(t_couts couts, int joueur_ligne, int joueur_colonne);
 void initialiser_visitees(t_visites visitees);
 bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne);
 void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees, int *case_choisie_ligne, int *case_choisie_colonne);
-int cout_deplacement(int carburant_case);
+int cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
 void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precedents precedents, int courante_ligne, int courante_colonne);
 void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_precedents precedents);
 int calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[4]);
@@ -159,7 +159,7 @@ typedef struct {
 int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 //ce tableau détient chaque direction possible pour un utilisateur. elles sont liées a
 //la chaine de caractère qui contient les lettres associés a ces déplacement
-char Charact_direction[4] = {"H","B","G","D"};
+char Charact_direction[4] = {'H','B','G','D'};
 
 //La fonction qui non seulement permet a l'utilisateur d'acheter un bonus mais construit également le chemin optimal.
 void dijkstra_acheter_bonus(int terrain[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne, int *joueur_carburant, int destination_ligne, int destination_colonne) {
@@ -279,26 +279,30 @@ void dijkstra_acheter_bonus(int terrain[NB_LIGNES][NB_COLONNES], int joueur_lign
 //  *********************************
 
 void initialiser_couts(t_couts couts, int joueur_ligne, int joueur_colonne) {
+    //Les couts présentés dans le tab des couts sont explorés
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
+            //La case détenue par l'utilisateur  a un cout de 0 : point de départ
             if ( i == joueur_ligne && j == joueur_colonne ) {
                 couts[i][j] = 0;
             }
+            //Toutes cases du terrain auront un cout aléatoire se rapprochant d'une valeur élevé
             couts[i][j] = INFINITY;
         }
     }
 }
 
 void initialiser_visitees(t_visites visitees) {
+    //Les lignes et colonnes dans le tab visites sont explorés
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
             visitees[i][j] = false;
         }
     }
-}
+}  //Lorsque l'utilisateur n'a pas visité la case, cette derniere est marqué comme FALSE
 
 bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne) {
-
+//Lorsque la case est visitée par le joueur, elle est considérée TRUE
     if (visitees[case_ligne][case_colonne] == TRUE) {
         return TRUE;
     }
@@ -307,6 +311,7 @@ bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne) {
 
 void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees, int *case_choisie_ligne, int *case_choisie_colonne) {
 
+    //Le cout minimum est établit
     int min_cout = INFINITY;
     *case_choisie_ligne = -1;
     *case_choisie_colonne = -1;
@@ -337,7 +342,7 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
         if (voisin_ligne >= 0 && voisin_ligne < NB_LIGNES && voisin_colonne >= 0 && voisin_colonne < NB_COLONNES) {
 
             if (!visitees[voisin_ligne][voisin_colonne]) {
-                int nouveau_cout = couts[courante_ligne][courante_colonne] + cout_deplacement(terrain[voisin_ligne][voisin_colonne]);
+                int nouveau_cout = couts[courante_ligne][courante_colonne] + cout_deplacement(terrain,voisin_ligne,voisin_colonne);
 
                 if (nouveau_cout < couts[voisin_ligne][voisin_colonne]) {
                     couts[voisin_ligne][voisin_colonne] = nouveau_cout;

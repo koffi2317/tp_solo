@@ -15,4 +15,4 @@ add_executable(tp_solo main.c
         dijkstra.h
         dijkstra.c
         couleur.c
-        "couleur (2).h")
+        "couleur.h")
