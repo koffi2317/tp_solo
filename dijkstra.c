@@ -354,13 +354,14 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
     initialiser_couts(couts, joueur_ligne, joueur_colonne);
     initialiser_visitees(visitees);
 
-    while (TRUE) {
+    while(TRUE) {
         int case_ligne, case_colonne;
         choisir_min_dist_non_visitee(couts, visitees, &case_ligne, &case_colonne);
 
-        /*if (case_ligne == -1 || (case_ligne == destination_ligne && case_colonne == destination_colonne)) {
+        if (case_ligne == -1 || (case_ligne == destination_ligne && case_colonne == destination_colonne)) {
             break;
-        }*/
+        }
+
         while ( case_ligne == -1) {
             if (case_ligne == destination_ligne && case_colonne == destination_colonne) {
                 break;
