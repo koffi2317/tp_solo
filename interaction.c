@@ -1,6 +1,11 @@
-//
-// Created by stephane on 09/01/25.
-//
+/*************************************************************************************
+** Nom du fichier : interaction.c
+** Description  : Cette partie des fichier s'occupe de la communication entre le joueur et
+le jeu en offrant des fonctionnalités pour afficher des données, solliciter des décisions
+de la part de l'utilisateur et confirmer les actions qu'il désire entreprendre.
+
+** connectivité :  stdio.h, interaction.h, ctype.h, couleur.h
+*************************************************************************************/
 
 //  ***********************************
 //  Definitions des fonctions publiques
@@ -11,12 +16,12 @@
 #include <ctype.h>
 #include "couleur.h"
 
-
+//Affichage d'une petite presentation du jeu. (regles + astuce incluse)
 void interaction_presenter_jeu() {
     printf("*********************************************************\n");
-    //couleur_set(0, 32, 40);
+    couleur_set(0, 32, 40);
     printf("            Bienvenue dans le Jeu !\n");
-    //couleur_reset();
+    couleur_reset();
     printf("*********************************************************\n");
 
     printf("\n*********************** REGLEMENT ***********************\n");
@@ -34,6 +39,7 @@ void interaction_presenter_jeu() {
     printf("*********************************************************\n\n");
 }
 
+//Les différents modes d'intéractions accessibles a l'utilisateur
 void interaction_afficher_options(int carburant) {
     printf("Carburant restant : %i\n",carburant);
     printf("\n");
@@ -53,7 +59,7 @@ void interaction_afficher_options(int carburant) {
         printf("3. Quitter\n");
     }
 }
-
+//Cette fonction demande la choix de l'utilisateur parmis les choix proposes
 int interaction_demander_action(int carburant) {
     int choix;
 
@@ -77,7 +83,7 @@ int interaction_demander_action(int carburant) {
     }
 
 }
-
+//Cette fonction permet a l'utilisateur de choisir la direction de son choix
 t_direction interaction_demander_direction_deplacement() {
     char direction;
 
@@ -88,7 +94,7 @@ t_direction interaction_demander_direction_deplacement() {
 
     return jeu_verifier_choix_deplacement(&direction);
 }
-
+// Lorsque l'utilisateur échoue le jeu, un message d'échec apparait.
 void interaction_afficher_echec() {
     printf("\n");
     couleur_set(0, 31, 40);
@@ -99,7 +105,7 @@ void interaction_afficher_echec() {
     printf("avec plus de precaution.\n");
     printf("Essayez de nouveau pour atteindre la sortie !\n");
 }
-
+//Lorsque l'utilisateur gagne le jeu, un message de victoire apparait
 void interaction_afficher_victoire(int carburant) {
     printf("\n");
     couleur_set(0, 32, 40);
@@ -112,7 +118,7 @@ void interaction_afficher_victoire(int carburant) {
     printf("Bravo et merci d'avoir joue !\n");
 }
 
-
+//Vérification de l'action choisie par l'utilisateur.
 t_action interaction_verifier_choix_action(t_action action, int carburant) {
     switch (action) {
         case ACTION_DEPLACER:

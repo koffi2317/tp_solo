@@ -7,7 +7,7 @@
 
 #include "terrain.h"
 
-#define JOUEUR_CARBURANT_INITIAL    2
+#define JOUEUR_CARBURANT_INITIAL    13
 #define COUT_DEPLACEMENT_VOISIN     1
 #define BONUS_CARBURANT             5
 #define TOTAL_CARBURANT_NIVEAU_1    100

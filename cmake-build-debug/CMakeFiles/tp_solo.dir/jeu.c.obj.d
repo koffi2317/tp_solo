@@ -1,7 +1,5 @@
 CMakeFiles/tp_solo.dir/jeu.c.obj: \
  C:\Users\owass\OneDrive\ -\ ETS\Desktop\tp_solo\jeu.c \
- C:\Users\owass\OneDrive\ -\ ETS\Desktop\tp_solo\interaction.h \
- C:\Users\owass\OneDrive\ -\ ETS\Desktop\tp_solo\jeu.h \
  C:\Users\owass\OneDrive\ -\ ETS\Desktop\tp_solo\terrain.h \
  C:/Users/owass/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  C:/Users/owass/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
@@ -15,4 +13,5 @@ CMakeFiles/tp_solo.dir/jeu.c.obj: \
  C:/Users/owass/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
  C:/Users/owass/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
  C:/Users/owass/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/include/ctype.h \
- C:/Users/owass/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h
+ C:/Users/owass/AppData/Local/Programs/CLion/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
+ C:\Users\owass\OneDrive\ -\ ETS\Desktop\tp_solo\jeu.h
