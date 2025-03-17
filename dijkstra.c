@@ -11,6 +11,8 @@
 #include "jeu.h"
 #include <stdbool.h>
 #include <stdio.h>
+#include <limits.h>
+
 #define INFINITY 9
 #define NB_DIRECTIONS 4
 
@@ -26,17 +28,7 @@ typedef t_direction t_precedents[NB_LIGNES][NB_COLONNES];
 //  Declarations des fonctions privees
 //  **********************************
 
-void initialiser_couts(t_couts couts, int joueur_ligne, int joueur_colonne);
-void initialiser_visitees(t_visites visitees);
-bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne);
-void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees, int *case_choisie_ligne, int *case_choisie_colonne);
-int cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
-void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precedents precedents, int courante_ligne, int courante_colonne);
-void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_precedents precedents);
-int calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[4]);
-void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne);
-void afficher_direction_suggeree(int directions[]);
-/*
+/**
  * @brief Initialise tous les couts avec le plus grand entier du type int.
  * Initialise egalement le cout de la case du joueur a 0.
  * @name initialiser_couts
@@ -45,8 +37,7 @@ void afficher_direction_suggeree(int directions[]);
  * @param joueur_colonne la colonne ou se trouve le joueur
  */
 //  Ecrire le prototype de la fonction 'initialiser_couts' ici
-  //à l'exception de la case de départ du joueur, dont le coût est initialisé à 0.
-
+void initialiser_couts(t_couts couts, int joueur_ligne, int joueur_colonne);
 
 /**
  * @brief Initialise toutes les cases a non visitee.
@@ -54,6 +45,7 @@ void afficher_direction_suggeree(int directions[]);
  * @param visitees le tableau bi-dimensionnel qui indique, pour chaque case, si elle a deja ete visitee ou non.
  */
 //  Ecrire le prototype de la fonction 'initialiser_visitees' ici
+void initialiser_visitees(t_visites visitees);
 
 /**
  * @brief Indique si une case donnee a deja ete visitee au cours de l'algorithme.
@@ -64,6 +56,7 @@ void afficher_direction_suggeree(int directions[]);
  * @return true si la case a deja ete visitee, false sinon
  */
 //  Ecrire le prototype de la fonction 'est_case_visitee' ici
+bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne);
 
 /**
  * @brief Recherche la case non visitee qui possede le plus petit cout.
@@ -74,6 +67,8 @@ void afficher_direction_suggeree(int directions[]);
  * @param case_choisie_colonne l'adresse ou deposer la colonne de la case choisie
  */
 //  Ecrire le prototype de la fonction 'choisir_min_dist_non_visitee' ici
+void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees, int *case_choisie_ligne,
+                                  int *case_choisie_colonne);
 
 /**
  * @brief Retourne le cout de deplacement pour aller d'une case a une case voisine.
@@ -85,19 +80,21 @@ void afficher_direction_suggeree(int directions[]);
  * @note le cout pour aller d'une case a l'une de ses voisines est 1 + (9 - carburant dans la case voisine)
  */
 //  Ecrire le prototype de la fonction 'cout_deplacement' ici
+int cout_deplacement(t_couts couts, int voisin_ligne, int voisin_colonne);
 
 /**
- * @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
- * @name maj_voisins
- * @param couts le tableau des couts
- * @param visitees le tableau qui indique, pour toute case, si elle a deja ete visitee
- * @param terrain le terrain qui contient les stations de carburant
- * @param precedents le tableau des precedents qui est mis a jour si l'un des chemins ameliore un chemin deja trouve auparavant
- * @param courante_ligne la ligne de la position courante a partir de laquelle on regarde les voisins
- * @param courante_colonne la colonne de la position courante a partir de laquelle on regarde les voisins
+* @brief Parcourt les voisins d'une case donnee et met a jour leur cout dans le tableau des couts.
+*@name maj_voisins
+* @param couts le tableau des couts
+* @param visitees le tableau qui indique, pour toute case, si elle a deja ete visitee
+* @param terrain le terrain qui contient les stations de carburant
+* @param precedents le tableau des precedents qui est mis a jour si l'un des chemins ameliore un chemin deja trouve auparavant
+* @param courante_ligne la ligne de la position courante a partir de laquelle on regarde les voisins
+* @param courante_colonne la colonne de la position courante a partir de laquelle on regarde les voisins
  */
 //  Ecrire le prototype de la fonction 'maj_voisins' ici
-
+void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precedents precedents,
+                 int courante_ligne, int courante_colonne);
 /**
  * @brief Affiche le tableau des couts
  * @name afficher_couts
@@ -109,6 +106,9 @@ void afficher_direction_suggeree(int directions[]);
  * @param destination_colonne la colonne de la position a atteindre
  */
 //  Ecrire le prototype de la fonction 'afficher_couts' ici
+void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int joueur_colonne
+                    , int destination_ligne, int destination_colonne);
+
 
 /**
  * @brief Calcule les 4 premieres cases du plus court chemin en terme de carburant
@@ -122,6 +122,8 @@ void afficher_direction_suggeree(int directions[]);
  * @return le nombre de directions proposees par l'algorithme (normalement 4, mais peut etre plus petit)
  */
 //  Ecrire le prototype de la fonction 'calculer_chemin_bonus' ici
+int calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne
+                          , int destination_ligne, int destination_colonne, int directions[4]);
 
 /**
  * @brief Algorithme de Dijkstra pour calculer le plus court chemin en partent de la position du joueur pour atteindre
@@ -136,6 +138,8 @@ void afficher_direction_suggeree(int directions[]);
  * @return
  */
 //  Ecrire le prototype de la fonction 'dijkstra' ici
+void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne
+              , int destination_colonne, t_precedents precedents);
 
 /**
  * @brief Affiche les 4 premieres directions a suivre sur le plus court chemin pour joindre la destination a partir de la position du joueur
@@ -144,6 +148,8 @@ void afficher_direction_suggeree(int directions[]);
  * @param nb le nombre de directions a suivre
  */
 //  Ecrire le prototype de la fonction 'afficher_direction_suggeree' ici
+void afficher_direction_suggeree(int directions[], int nb);
+
 
 //  ***********************************
 //  Definitions des fonctions publiques
@@ -162,116 +168,20 @@ int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 char Charact_direction[4] = {'H','B','G','D'};
 
 //La fonction qui non seulement permet a l'utilisateur d'acheter un bonus mais construit également le chemin optimal.
-void dijkstra_acheter_bonus(int terrain[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne, int *joueur_carburant, int destination_ligne, int destination_colonne) {
+void dijkstra_acheter_bonus(int terrain[NB_LIGNES][NB_COLONNES], int joueur_ligne, int joueur_colonne,
+                            int *joueur_carburant, int destination_ligne, int destination_colonne) {
 
-  // Vérifier si le joueur a assez de carburant pour obtenir ou non le bonus
-    if (*joueur_carburant < 10) {
-        printf("Vous ne disposez pas assez de carburant afin d'acheter un bonus\n");
-        printf("Veillez accumuler plus de carburant et réessayer plus tard!\n");
-    }else if (*joueur_carburant > 10) {
+     *joueur_carburant -= 10;
+    printf("Felicitations, vous avez achete le bonus ! Il vous reste %d litres de carburant.\n"
+           , *joueur_carburant);
 
-    // Lorsque le joueur décide d'obtenir le bonus, 10L de carburant lui est déduit
- char choix_utilisateur;
+    // Appel de l'algorithme Dijkstra pour calculer le plus court chemin
+    t_precedents precedents; // Assurez-vous que la structure t_precedents est bien définie dans votre code
+    dijkstra(terrain, joueur_ligne, joueur_colonne, destination_ligne, destination_colonne, precedents);
 
-   printf("Vous avez 10 litres de carburant dans votre réservoir.\n");
-   printf("Voulez-vous vous procurez le bonus? veuillez répondre par O ou N:\n");
-   scanf("%c", &choix_utilisateur);
-
-   if (choix_utilisateur == 'N') {
-     printf("Parfait! le bonus ne vous sera pas attribué!\n");
-   } else if(choix_utilisateur == '0') {
-
-    *joueur_carburant -= 10;
-    printf("Vous venez d'acheter le bonus. Le carburant restant est de : %d Litres\n", *joueur_carburant);
-
-    //Le cout minimal pour le déplacement est stocké
-    int cout[NB_LIGNES][NB_COLONNES];
-    int direction_algo[NB_LIGNES][NB_COLONNES];
-    //Stockage du "chemin" pour se rendre a la case choisie
-
-
-    for (int i = 0; i < NB_LIGNES; i++) {
-        for (int j = 0; j < NB_COLONNES; j++) {
-
-          /*Changement du code concernant le stockage des couts*/
-
-           /* //Les couts de chaque cases sont initialiser aleatoirement
-            cout[i][j] = INF; /*a changer pour aleatoire*/
-
-            direction_algo[i][j] = -1;
-            //puisqu'il y a aucun dhemin prédéfinis pour le moment, les directions de l'algo sont a -1
-            //L'indicateur -1 réprésente toute cases pas atteintes et la cases de départ
-            //La case de Haut est 0, 1 réprésente les case de bas, 2 pour gauche et 3 pour droite
-        }
-    }
-
-    //Le tableau file sert a établir un ordre pour l'exploration des cases
-    Case file[NB_LIGNES * NB_COLONNES];
-    //Les indices du tout premier et dernier éléments a traiter dans la file des déplacement
-    int indice_debut_file = 0, indice_fin_file = 0;
-
-
-    file[indice_fin_file++] = (Case){joueur_ligne, joueur_colonne, 0};
-    cout[joueur_ligne][joueur_colonne] = 0;
-    //La case de l'utilisateur (au début du jeu) a un cout de ZÉRO
-    //Cette case est ajouté dans la file parmis les autres cases (comme première position)
-
-    // La fonction Dijkstra permet l'exploration des cases voisines a celle présentement occupée par l'utilisateur
-    while (indice_debut_file < indice_fin_file) {
-        Case actuel = file[indice_debut_file++];
-    //La case occupé par l'utilisateur (perçus) comme la premiere position dans la file des déplacement
-    //Toutes cases voisines accessibles selon les différents déplacements sont explorer
-
-    //Les 4 directions qu'un utilisateur peut emprunter son tester afin de déterminer le meilleur chemin a suivre
-        for (int mouvement = 0; mouvement < 4; mouvement++) {
-            int nouvelle_ligne = actuel.ligne + directions[mouvement][0];
-            int nouvelle_colonne = actuel.colonne + directions[mouvement][1];
-    //nouvelle ligne et colonne sont les coordonnées de la case voisine qui sera implimenter dans file
-
-            // Vérification de la case: Savoir si elle est éligible aux dimensions du terrain
-            if (nouvelle_ligne >= 0 && nouvelle_ligne < NB_LIGNES && nouvelle_colonne >= 0 && nouvelle_colonne < NB_COLONNES) {
-                int nouveau_cout = cout[actuel.ligne][actuel.colonne] + terrain[nouvelle_ligne][nouvelle_colonne];
-
-                //Le cout est Mise à jour si et uniquement si un meilleur chemin optimal est trouvé
-                if (nouveau_cout < cout[nouvelle_ligne][nouvelle_colonne]) {
-                    cout[nouvelle_ligne][nouvelle_colonne] = nouveau_cout;
-
-                    //Pour le chemin optimal, le chemin a suivre est maintenue dans la sirection de l'algorithme
-                    direction_algo[nouvelle_ligne][nouvelle_colonne] = mouvement;
-
-                    //Par la suite, cette meme case est enregistrer dans la file parmis les autres cases pour déterminer le chemin optimal
-                    file[indice_fin_file++] = (Case){nouvelle_ligne, nouvelle_colonne, nouveau_cout};
-                }
-            }
-        }
-    }
-
-    // Reconstruction du chemin menant a la sortie
-    int chemin[4];
-    int ligne = destination_ligne, colonne = destination_colonne;
-    int lexique_des_repères = 0;
-    //Le lexique sert a parcourir et enegistrer le chemin menant a la sortie
-
-    //Les cases qui sont enregistrés pour mener a la sortie sont explorer pour la constitution du chemin optimal
-    while (direction_algo[ligne][colonne] != -1){
-       if(lexique_des_repères < 4) {
-        int mouvement= direction_algo[ligne][colonne];
-
-        chemin[lexique_des_repères++] = mouvement;
-
-        ligne -= directions[mouvement][0];
-        colonne -= directions[mouvement][1];
-        }
-    }
-
-    // Les 4 directions qui seront affichées pour le chemin optimal
-    printf("Les 4 premieres directions pour le chemin optimal est : \n");
-    for (int i = lexique_des_repères - 1; i >= 0; i--) {
-        printf("%c\n", Charact_direction[chemin[i]]);
-      }
-     }
-    }
 }
+
+
 
 
 //  *********************************
@@ -279,27 +189,27 @@ void dijkstra_acheter_bonus(int terrain[NB_LIGNES][NB_COLONNES], int joueur_lign
 //  *********************************
 
 void initialiser_couts(t_couts couts, int joueur_ligne, int joueur_colonne) {
-    //Les couts présentés dans le tab des couts sont explorés
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
-            //La case détenue par l'utilisateur  a un cout de 0 : point de départ
-            if ( i == joueur_ligne && j == joueur_colonne ) {
+            if (i == joueur_ligne && j == joueur_colonne) {
                 couts[i][j] = 0;
+            } else {
+                couts[i][j] = INT_MAX;
             }
-            //Toutes cases du terrain auront un cout aléatoire se rapprochant d'une valeur élevé
-            couts[i][j] = INFINITY;
         }
     }
 }
 
+
 void initialiser_visitees(t_visites visitees) {
-    //Les lignes et colonnes dans le tab visites sont explorés
+    //Les lignes et colonnes dans le tableau t_visites sont explorés.
+    //Lorsque l'utilisateur n'a pas visité la case, cette derniere est marqué comme FALSE
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
-            visitees[i][j] = false;
+            visitees[i][j] = FALSE;
         }
     }
-}  //Lorsque l'utilisateur n'a pas visité la case, cette derniere est marqué comme FALSE
+}
 
 bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne) {
 //Lorsque la case est visitée par le joueur, elle est considérée TRUE
@@ -309,30 +219,33 @@ bool est_case_visitee(t_visites visitees, int case_ligne, int case_colonne) {
     return FALSE;
 }
 
-void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees, int *case_choisie_ligne, int *case_choisie_colonne) {
+void choisir_min_dist_non_visitee(t_couts couts, t_visites visitees, int *case_choisie_ligne
+                                  , int *case_choisie_colonne) {
 
-    //Le cout minimum est établit
-    int min_cout = INFINITY;
-    *case_choisie_ligne = -1;
-    *case_choisie_colonne = -1;
+    int min_cout = INT_MAX;
+    int ligne_choisie = -1, colonne_choisie = -1;
 
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
-            if (visitees[i][j] == FALSE && couts[i][j] < min_cout) {
+            if (!visitees[i][j] && couts[i][j] < min_cout) {
                 min_cout = couts[i][j];
-                *case_choisie_ligne = i;
-                *case_choisie_colonne = j;
+                ligne_choisie = i;
+                colonne_choisie = j;
             }
         }
     }
+
+    *case_choisie_ligne = ligne_choisie;
+    *case_choisie_colonne = colonne_choisie;
 }
 
 int cout_deplacement(t_couts couts, int voisine_ligne, int voisine_colonne) {
-
     return 1 + (9 - couts[voisine_ligne][voisine_colonne]);
 }
 
-void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precedents precedents, int courante_ligne, int courante_colonne) {/**/
+void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precedents precedents
+                 , int courante_ligne, int courante_colonne) {
+
     int directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
     for (int d = 0; d < 4; d++) {
@@ -342,7 +255,8 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
         if (voisin_ligne >= 0 && voisin_ligne < NB_LIGNES && voisin_colonne >= 0 && voisin_colonne < NB_COLONNES) {
 
             if (!visitees[voisin_ligne][voisin_colonne]) {
-                int nouveau_cout = couts[courante_ligne][courante_colonne] + cout_deplacement(terrain,voisin_ligne,voisin_colonne);
+                int nouveau_cout = couts[courante_ligne][courante_colonne] +
+                        cout_deplacement(terrain,voisin_ligne,voisin_colonne);
 
                 if (nouveau_cout < couts[voisin_ligne][voisin_colonne]) {
                     couts[voisin_ligne][voisin_colonne] = nouveau_cout;
@@ -352,46 +266,10 @@ void maj_voisins(t_couts couts, t_visites visitees, t_terrain terrain, t_precede
     }
 }
 
- void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne, t_precedents precedents) {
-    t_couts couts;
-    t_visites visitees;
 
-    initialiser_couts(couts, joueur_ligne, joueur_colonne);
-    initialiser_visitees(visitees);
+void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int joueur_colonne
+                    , int destination_ligne, int destination_colonne) {
 
-    while(TRUE) {
-        int case_ligne, case_colonne;
-        choisir_min_dist_non_visitee(couts, visitees, &case_ligne, &case_colonne);
-
-        if (case_ligne == -1 || (case_ligne == destination_ligne && case_colonne == destination_colonne)) {
-            break;
-        }
-
-        while ( case_ligne == -1) {
-            if (case_ligne == destination_ligne && case_colonne == destination_colonne) {
-                break;
-            }
-        }
-
-        visitees[case_ligne][case_colonne] = TRUE;
-        //maj_voisins(couts, visitees, terrain, precedents, case_ligne, case_colonne);
-    }
-}
-
-int calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne, int destination_ligne, int destination_colonne, int directions[4]) {
-    int ligne = destination_ligne, colonne = destination_colonne;
-    int i = 0;
-    while (i < 4 && (ligne != depart_ligne || colonne != depart_colonne)) {
-        int direction = precedents[ligne][colonne];
-        directions[i++] = direction;
-        ligne -= (direction == 1) - (direction == 0);
-        colonne -= (direction == 3) - (direction == 2);
-    }
-    return i;
-}
-
-//  Ecrire le prototype de la fonction 'afficher_couts' ici
-void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne) {
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
 
@@ -407,10 +285,96 @@ void afficher_couts(t_couts couts, t_visites visitees, int joueur_ligne, int jou
         }
     }
 }
+int calculer_chemin_bonus(t_precedents precedents, int depart_ligne, int depart_colonne, int destination_ligne
+                          , int destination_colonne, int directions[4]) {
 
-void afficher_direction_suggeree(int directions[]) {
-    printf("À partir de l'algorithme, les directions suggérées sont:\n ");
-    for (int i = 0; i < NB_DIRECTIONS; i++) {
-        printf("%d ", directions[i]);
+    int lexique_des_repères = 0;   // Compteur pour les directions trouvées
+    int ligne = destination_ligne; // Ligne de la destination
+    int colonne = destination_colonne; // Colonne de la destination
+
+    // Directions possibles (haut, bas, gauche, droite)
+    int directions_possibles[4][2] =
+            {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    // Remonter le chemin depuis la destination en utilisant le tableau des précédents
+    while (ligne != depart_ligne || colonne != depart_colonne) {
+        // Vérification si on a déjà trouvé 4 directions, on s'arrête si oui
+        if (lexique_des_repères >= 4) {
+            break;
+        }
+
+        printf("Case (%d, %d) -> precedents = %d\n", ligne, colonne, precedents[ligne][colonne]);
+
+        // Trouver la direction vers laquelle nous venons (en utilisant le tableau precedents)
+        int direction = precedents[ligne][colonne];
+
+        // Vérifier que la direction est valide (0-3) avant de l'utiliser
+        if (direction >= 0 && direction < 4) {
+            // Stocker la direction dans le tableau de sortie
+            directions[lexique_des_repères++] = direction;
+
+            // Calculer les nouvelles coordonnées en fonction de la direction
+            ligne -= directions_possibles[direction][0];  // Déplacement en ligne
+            colonne -= directions_possibles[direction][1]; // Déplacement en colonne
+        } else {
+            // Si une direction invalide est rencontrée, sortir de la boucle
+            break;
+        }
     }
+
+    // Inverser les directions pour obtenir le chemin du départ vers la destination
+    for (int i = 0; i < lexique_des_repères / 2; i++) {
+        int temp = directions[i];
+        directions[i] = directions[lexique_des_repères - 1 - i];
+        directions[lexique_des_repères - 1 - i] = temp;
+    }
+
+    // Retourner le nombre de directions calculées
+    return lexique_des_repères;
+}
+
+void dijkstra(t_terrain terrain, int joueur_ligne, int joueur_colonne, int destination_ligne, int destination_colonne,
+              t_precedents precedents) {
+    t_couts couts;
+    t_visites visitees;
+
+    // Initialisation des coûts et des cases visitées
+    initialiser_couts(couts, joueur_ligne, joueur_colonne);
+    initialiser_visitees(visitees);
+
+    while (TRUE) {
+        // Chercher la case non visitée avec le coût minimal
+        int case_ligne, case_colonne;
+        choisir_min_dist_non_visitee(couts, visitees, &case_ligne, &case_colonne);
+
+        // Si toutes les cases ont été visitées ou si la destination est atteinte
+        if (case_ligne == -1 || (case_ligne == destination_ligne && case_colonne == destination_colonne)) {
+            break;
+        }
+        if (!est_case_visitee(visitees, case_ligne, case_colonne)) {
+            // Marquer la case comme visitée
+            visitees[case_ligne][case_colonne] = TRUE;
+
+            // Mettre à jour les voisins de la case courante
+            maj_voisins(couts, visitees, terrain, precedents, case_ligne, case_colonne);
+        }
+    }
+
+    // Calculer le chemin depuis la destination jusqu'au point de départ
+    int directions_suggerees[4];
+    int nb_directions = calculer_chemin_bonus(precedents,joueur_ligne, joueur_colonne
+                                              , destination_ligne, destination_colonne, directions_suggerees);
+
+    // Afficher les directions suggérées
+    afficher_direction_suggeree(directions_suggerees,nb_directions);
+}
+
+void afficher_direction_suggeree(int directions[], int nb) {
+    const char *nom_chemin[4] = {"Haut", "Bas", "Gauche", "Droite"};
+
+    printf("A partir de l'algorithme, les directions suggerees sont: ");
+    for (int i = 0; i < nb; i++) {  // Utilisez 'nb' pour afficher les directions suggérées
+        printf("%s ", nom_chemin[directions[i]]);  // Correction de la syntaxe du printf
+    }
+    printf("\n");
 }

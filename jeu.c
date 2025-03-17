@@ -14,6 +14,7 @@
 // Definir la fonction 'jeu_maj_carburant_joueur' ici
 void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_carburant,
                               int terrain[NB_LIGNES][NB_COLONNES]) {
+
     *joueur_carburant -= COUT_DEPLACEMENT_VOISIN;
 
     if (terrain[joueur_ligne][joueur_colonne] > 0) {
@@ -58,22 +59,7 @@ int jeu_deplacer_joueur (int *joueur_ligne, int *joueur_colonne, t_direction dir
     } else {
         return FALSE;
     }
-    //si le déplacement n'a pu se faire dans les limites du terrain, c'est false.
-    if (nouvelle_ligne < 0) {
-        return FALSE;
-    } else if (nouvelle_ligne >= TAILLE_TAB) {
-        return FALSE;
-    } else if (nouvelle_colonne < 0) {
-        return FALSE;
-    } else if (nouvelle_colonne >= TAILLE_TAB) {
-        return FALSE;
-    } else {
-        //Changement des coordonnées du joueur pour la case choisie
-        return TRUE;
-    }
 }
-
-// Definir la fonction 'jeu_init' ici
 
 void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int
               *joueur_colonne, int *joueur_carburant, int *destination_ligne,
@@ -94,8 +80,6 @@ void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int
 
     *joueur_carburant = JOUEUR_CARBURANT_INITIAL;
 }
-
-// Definir la fonction 'jeu_afficher_direction' ici
 
 void jeu_afficher_direction(int direction) {
 
@@ -138,8 +122,6 @@ int jeu_verifier_choix_deplacement(char *choix) {
     }
 }
 
-// Definir la fonction 'jeu_calculer_voisin' ici
-
 void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int
                          *voisin_ligne, int *voisin_colonne) {
     if (direction==DIRECTION_BAS) {
@@ -168,7 +150,5 @@ if(joueur_ligne==destination_ligne && joueur_colonne==destination_colonne) {
     if(joueur_carburant==0) {
         return JEU_ETAT_ECHEC;
     }
-
 return JEU_ETAT_EN_COURS;
-
 }

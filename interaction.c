@@ -14,7 +14,9 @@
 
 void interaction_presenter_jeu() {
     printf("*********************************************************\n");
+    //couleur_set(0, 32, 40);
     printf("            Bienvenue dans le Jeu !\n");
+    //couleur_reset();
     printf("*********************************************************\n");
 
     printf("\n*********************** REGLEMENT ***********************\n");
@@ -45,9 +47,9 @@ void interaction_afficher_options(int carburant) {
         printf("3. Quitter\n");
     } else {
         printf("1. Se deplacer\n");
-        //couleur_set(0,90, 40);
+        couleur_set(0,90, 40);
         printf("2. Acheter un bonus\n");
-        //couleur_reset();
+        couleur_reset();
         printf("3. Quitter\n");
     }
 }
@@ -89,7 +91,9 @@ t_direction interaction_demander_direction_deplacement() {
 
 void interaction_afficher_echec() {
     printf("\n");
+    couleur_set(0, 31, 40);
     printf("********************** GAME OVER **********************\n");
+    couleur_reset();
     printf("Vous etes tombe en panne de carburant !\n");
     printf("Le vehicule ne peut plus avancer. Vous devez gerer votre carburant ");
     printf("avec plus de precaution.\n");
@@ -98,7 +102,9 @@ void interaction_afficher_echec() {
 
 void interaction_afficher_victoire(int carburant) {
     printf("\n");
+    couleur_set(0, 32, 40);
     printf("********************** VICTOIRE **********************\n");
+    couleur_reset();
     printf("Felicitations ! Vous avez atteint la sortie avec succes !\n");
     printf("Vous avez bien gere votre carburant et pris les bonnes decisions.\n");
     printf("\n");
@@ -121,6 +127,7 @@ t_action interaction_verifier_choix_action(t_action action, int carburant) {
             return ACTION_INVALIDE;
 
         case ACTION_QUITTER:
+            printf("Merci d'avoir jouer, a la prochaine !");
             return ACTION_QUITTER;
     }
 }

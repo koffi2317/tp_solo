@@ -1,6 +1,6 @@
 //
-// Created by stephane on 08/01/25.
-//
+//// Created by stephane on 08/01/25.
+////
 #include "terrain.h"
 #include "util.h"
 #include <stdio.h>
@@ -32,8 +32,8 @@ void terrain_generer_position_depart(int destination_ligne, int destination_colo
         *depart_ligne = util_generer_nombre_aleatoire(0, NB_LIGNES - 1);
         *depart_colonne = util_generer_nombre_aleatoire(0, NB_COLONNES - 1);
 
-        distance_ligne = abs(destination_ligne - *depart_ligne);
-        distance_colonne = abs(destination_colonne - *depart_colonne);
+        distance_ligne = valeur_absolue_donnee(destination_ligne - *depart_ligne);
+        distance_colonne = valeur_absolue_donnee(destination_colonne - *depart_colonne);
         distance_tot = distance_ligne + distance_colonne;
 
     } while (distance_tot < DISTANCE_MIN);

@@ -1,16 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "couleur.h"
 #include "interaction.h"
 #include "jeu.h"
 #include "terrain.h"
-#include "util.h"
+#include "dijkstra.h"
 
-
-
-int main(void)
-{
+int main(void){
     int sortie_colonne, sortie_ligne;
     int depart_ligne, depart_colonne;
     int terrain[NB_LIGNES][NB_COLONNES];
@@ -25,7 +21,6 @@ int main(void)
 
     while (jeu_verifier_fin(depart_ligne, depart_colonne, carburant,
                             sortie_ligne, sortie_colonne) == JEU_ETAT_EN_COURS){
-        //printf("***********************************************************************************************\n");
 
         interaction_afficher_options(carburant);
 
@@ -49,7 +44,9 @@ int main(void)
                 break;
 
             case ACTION_ACHETER_BONUS:
+                dijkstra_acheter_bonus(terrain,depart_ligne, depart_colonne, &carburant, sortie_ligne, sortie_colonne);
                 break;
+
             case ACTION_QUITTER:
                 return 0;
         }
