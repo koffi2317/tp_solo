@@ -14,7 +14,6 @@
 // Definir la fonction 'jeu_maj_carburant_joueur' ici
 void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_carburant,
                               int terrain[NB_LIGNES][NB_COLONNES]) {
-
     *joueur_carburant -= COUT_DEPLACEMENT_VOISIN;
 
     if (terrain[joueur_ligne][joueur_colonne] > 0) {
@@ -23,8 +22,7 @@ void jeu_maj_carburant_joueur(int joueur_ligne, int joueur_colonne, int *joueur_
     terrain[joueur_ligne][joueur_colonne] = 0;
 }
 
-int jeu_deplacer_joueur (int *joueur_ligne, int *joueur_colonne, t_direction direction) {
-
+int jeu_deplacer_joueur(int *joueur_ligne, int *joueur_colonne, t_direction direction) {
     //joueur_ligne l'adresse de la ligne ou se trouve le joueur avant le deplacement et qui sera mise a jour
     int nouvelle_ligne = *joueur_ligne;
     //joueur_colonne Pointeur vers la colonne du joueur avant déplacement, mise à jour après déplacement.
@@ -48,10 +46,10 @@ int jeu_deplacer_joueur (int *joueur_ligne, int *joueur_colonne, t_direction dir
             break;
         default:
             return FALSE;
-            // La direction entrée par l'utilisateur est invalide
+        // La direction entrée par l'utilisateur est invalide
     }
 
-    if(terrain_contient(nouvelle_ligne, nouvelle_colonne)){
+    if (terrain_contient(nouvelle_ligne, nouvelle_colonne)) {
         *joueur_ligne = nouvelle_ligne;
         *joueur_colonne = nouvelle_colonne;
         jeu_afficher_direction(direction);
@@ -64,7 +62,6 @@ int jeu_deplacer_joueur (int *joueur_ligne, int *joueur_colonne, t_direction dir
 void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int
               *joueur_colonne, int *joueur_carburant, int *destination_ligne,
               int *destination_colonne) {
-
     terrain_generer_position_sortie(destination_ligne, destination_colonne);
 
     terrain_generer_position_depart(*destination_ligne, *destination_colonne,
@@ -82,24 +79,18 @@ void jeu_init(int terrain[NB_LIGNES][NB_COLONNES], int *joueur_ligne, int
 }
 
 void jeu_afficher_direction(int direction) {
-
-if(direction==DIRECTION_BAS) {
-    printf("VOUS VOUS ETES DIRIGE VERS LE BAS !\n");  //a changer ** le message
-    printf("\n");
-}
-else if(direction==DIRECTION_HAUT) {
-    printf("VOUS VOUS ETES DIRIGE VERS LE HAUT !\n");
-    printf("\n");
-}
-
-else if(direction==DIRECTION_DROITE) {
-    printf("VOUS VOUS ETES DIRIGE VERS LA DROITE !\n");
-    printf("\n");
-}
-
-    else if(direction==DIRECTION_GAUCHE) {
+    if (direction == DIRECTION_BAS) {
+        printf("VOUS VOUS ETES DIRIGE VERS LE BAS !\n"); //a changer ** le message
+        printf("\n");
+    } else if (direction == DIRECTION_HAUT) {
+        printf("VOUS VOUS ETES DIRIGE VERS LE HAUT !\n");
+        printf("\n");
+    } else if (direction == DIRECTION_DROITE) {
+        printf("VOUS VOUS ETES DIRIGE VERS LA DROITE !\n");
+        printf("\n");
+    } else if (direction == DIRECTION_GAUCHE) {
         printf("VOUS VOUS ETES DIRIGE VERS LA GAUCHE !\n");
-    printf("\n");
+        printf("\n");
     }
 }
 
@@ -118,22 +109,22 @@ int jeu_verifier_choix_deplacement(char *choix) {
         case 'G':
             return DIRECTION_GAUCHE;
         default:
-            return DIRECTION_ERRONEE;  // Direction non valide
+            return DIRECTION_ERRONEE; // Direction non valide
     }
 }
 
 void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int
                          *voisin_ligne, int *voisin_colonne) {
-    if (direction==DIRECTION_BAS) {
+    if (direction == DIRECTION_BAS) {
         *voisin_ligne = case_ligne;
         *voisin_colonne = case_colonne + 1;
-    } else if (direction== DIRECTION_HAUT) {
+    } else if (direction == DIRECTION_HAUT) {
         *voisin_ligne = case_ligne;
         *voisin_colonne = case_colonne - 1;
     } else if (direction == DIRECTION_DROITE) {
         *voisin_ligne = case_ligne + 1;
         *voisin_colonne = case_colonne;
-    } else if (direction== DIRECTION_GAUCHE) {
+    } else if (direction == DIRECTION_GAUCHE) {
         *voisin_ligne = case_ligne - 1;
         *voisin_colonne = case_colonne;
     }
@@ -142,13 +133,12 @@ void jeu_calculer_voisin(int case_ligne, int case_colonne, int direction, int
 // Definir la fonction 'jeu_verifier_fin' ici
 
 int jeu_verifier_fin(int joueur_ligne, int joueur_colonne, int joueur_carburant, int
-destination_ligne, int destination_colonne) {
-
-if(joueur_ligne==destination_ligne && joueur_colonne==destination_colonne) {
-    return JEU_ETAT_VICTOIRE;
-}
-    if(joueur_carburant==0) {
+                     destination_ligne, int destination_colonne) {
+    if (joueur_ligne == destination_ligne && joueur_colonne == destination_colonne) {
+        return JEU_ETAT_VICTOIRE;
+    }
+    if (joueur_carburant == 0) {
         return JEU_ETAT_ECHEC;
     }
-return JEU_ETAT_EN_COURS;
+    return JEU_ETAT_EN_COURS;
 }
